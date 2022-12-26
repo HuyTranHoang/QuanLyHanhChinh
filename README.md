@@ -1,3 +1,3 @@
 # QuanLyHanhChinh
 
-PHP beginner projects.
+PHP beginner projects for learning purposes.
