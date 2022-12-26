@@ -17,7 +17,7 @@
     <div class="container position-relative">
         <a class="navbar-brand" href="#">
             <img src="./images/logo.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-            Aptech - C2206L
+            Aptech - C2206L - Huy Nè
         </a>
         <h3 class="navbar-text position-absolute top-50 start-50 translate-middle">Quản Lý Hành Chính</h3>
     </div>
