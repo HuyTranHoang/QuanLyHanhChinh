@@ -13,18 +13,12 @@
 </head>
 <body>
 
-<nav class="navbar navbar-dark bg-secondary container-fluid">
-    <div class="container position-relative">
-        <a class="navbar-brand" href="#">
-            <img src="./images/logo.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-            Aptech - C2206L - Huy Nè
-        </a>
-        <h3 class="navbar-text position-absolute top-50 start-50 translate-middle">Quản Lý Hành Chính</h3>
-    </div>
-</nav>
+<?php
+include 'layout/header.php'
+?>
 
 <div class="container">
-    <form method="POST" action="admin.php">
+    <form method="POST" action="admin/index.php">
         <div class="mb-3 mt-3 row">
             <label for="userName" class="col-sm-1 col-form-label">User Name</label>
             <div class="col-sm-6">
