@@ -4,7 +4,7 @@
         include 'sidebar.php';
         ?>
 
-        <div class="col-10">
+        <div class="col-10 offset-2">
             <div class="text-center mt-3">
                 <h3>QUẢN LÝ PHÒNG</h3>
                 <hr>

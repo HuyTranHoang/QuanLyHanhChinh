@@ -1,8 +1,8 @@
 <?php
 
-echo '<div class="col-2" style="margin-left: -12px">
+echo '<div class="col-2 fixed-top" style="margin-left: -12px">
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark ms-0"
-         style="height: calc(100vh - 73.6px);">
+         style="height: 100vh">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <i class="fa-sharp fa-solid fa-code me-3"></i>
             <span class="fs-4">Quản Lý</span>
@@ -10,7 +10,7 @@ echo '<div class="col-2" style="margin-left: -12px">
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="?act=" class="nav-link active" aria-current="page">
+                <a href="index.php" class="nav-link active" aria-current="page">
                     <i class="fa-duotone fa-house me-2"></i>
                     Trang chủ
                 </a>
