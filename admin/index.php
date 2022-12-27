@@ -39,6 +39,34 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == '1') {
                 $kq = getAll_pb();
                 include 'view/phongban.php';
                 break;
+            case 'addpb':
+                if ((isset($_POST['addpb'])) && ($_POST['addpb'])) {
+                    $tenPhong = $_POST['tenPhong'];
+                    $vietTat = $_POST['vietTat'];
+                    $ghiChu = $_POST['ghiChu'];
+                    insertPB($tenPhong,$vietTat,$ghiChu);
+                }
+
+                $kq = getAll_pb();
+                include 'view/phongban.php';
+                break;
+            case 'updatepb':
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id'];
+                    $kqOne = getOnePB($id);
+                    $kq = getAll_pb();
+                    include 'view/phongban_update.php';
+                }
+                if (isset($_POST['maPhong'])) {
+                    $maPhong = $_POST['maPhong'];
+                    $tenPhong = $_POST['tenPhong'];
+                    $vietTat = $_POST['vietTat'];
+                    $ghiChu = $_POST['ghiChu'];
+                    updatePB($maPhong, $tenPhong, $vietTat, $ghiChu);
+                    $kq = getAll_pb();
+                    include 'view/phongban.php';
+                }
+                break;
             case 'delpb':
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
@@ -78,6 +106,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == '1') {
 
 
 ?>
+
 </body>
 </html>
 

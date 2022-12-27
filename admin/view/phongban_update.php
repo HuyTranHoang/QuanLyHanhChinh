@@ -6,14 +6,14 @@
 
         <div class="col-10">
             <div class="text-center mt-3">
-                <h3>QUẢN LÝ PHÒNG</h3>
+                <h3>CẬP NHẬT PHÒNG</h3>
                 <hr>
-                <form method="POST" action="index.php?act=addpb" class="">
+                <form method="POST" action="index.php?act=updatepb" class="">
                     <div class="mb-3 mt-3 row justify-content-center">
                         <label for="tenPhong" class="col-sm-1 col-form-label">Tên phòng</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control shadow-sm" id="tenPhong" name="tenPhong"
-                                   placeholder="Tên phòng...">
+                                   placeholder="Tên phòng..." value="<?= $kqOne['tenPhong'] ?>">
                         </div>
                     </div>
 
@@ -21,7 +21,7 @@
                         <label for="vietTat" class="col-sm-1 col-form-label">Tên viết tắt</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control shadow-sm" id="vietTat" name="vietTat"
-                                   placeholder="Tên viết tắt...">
+                                   placeholder="Tên viết tắt..." value="<?= $kqOne['vietTat'] ?>">
                         </div>
                     </div>
 
@@ -29,12 +29,14 @@
                         <label for="vietTat" class="col-sm-1 col-form-label">Ghi chú</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control shadow-sm" id="ghiChu" name="ghiChu"
-                                   placeholder="Ghi chú...">
+                                   placeholder="Ghi chú..." value="<?= $kqOne['ghiChu'] ?>">
                         </div>
                     </div>
 
+                    <input type="hidden" name="maPhong" value="<?= $kqOne['maPhong'] ?>">
+
                     <div class="mb-3 col-sm-6">
-                        <input type="submit" class="btn btn-primary d-inline-block" name="addpb" value="Thêm mới">
+                        <button type="submit" class="btn btn-primary d-inline-block">Cập nhật</button>
                     </div>
                 </form>
 
