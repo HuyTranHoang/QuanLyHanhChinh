@@ -1,4 +1,6 @@
-<div class="col-2" style="margin-left: -12px">
+<?php
+
+echo '<div class="col-2" style="margin-left: -12px">
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark ms-0"
          style="height: calc(100vh - 73.6px);">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -58,4 +60,4 @@
             <strong>Huy Nèk</strong>
         </a>
     </div>
-</div>
+</div>';
