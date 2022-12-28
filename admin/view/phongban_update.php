@@ -55,12 +55,12 @@
 
                     <?php
                     if (isset($kq) && count($kq) > 0) {
-                        foreach ($kq as $index => $pb) {
+                        foreach ($kq as $index => $item) {
                             echo '<tr>';
-                            echo '<td>' . $index . '</td>';
-                            echo '<td><a href="index.php?act=updatepb&id=' . $pb['maPhong'] . '" class="text-decoration-none" >' . $pb['tenPhong'] . '</a></td>';
-                            echo '<td>' . $pb['vietTat'] . '</td>';
-                            echo '<td><a href="index.php?act=delpb&id=' . $pb['maPhong'] . '"><i class="fa-duotone fa-x"></a></i></td>';
+                            echo '<td>' . $index +1 . '</td>';
+                            echo '<td><a href="index.php?act=updatepb&id=' . $item['maPhong'] . '" class="text-decoration-none" >' . $item['tenPhong'] . '</a></td>';
+                            echo '<td>' . $item['vietTat'] . '</td>';
+                            echo '<td><a href="index.php?act=delpb&id=' . $item['maPhong'] . '"><i class="fa-duotone fa-x"></a></i></td>';
                             echo '</tr>';
                         }
                     }

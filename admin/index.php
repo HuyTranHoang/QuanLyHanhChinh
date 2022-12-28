@@ -18,8 +18,9 @@
 <body>
 <nav class="navbar navbar-dark bg-secondary container-fluid">
     <div class="container position-relative p-2 offset-2">
-        <a class="navbar-brand" href="#">
-            <img src="../images/logo.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+        <a class="navbar-brand" href="#" style="color: #D2E4F1">
+<!--            <img src="../images/logo.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">-->
+            <i class="fa-duotone fa-rocket-launch"></i>
             Aptech - C2206L
         </a>
         <h1 class="navbar-text position-absolute top-50 start-50 translate-middle text-white">Quản Lý Hành Chính</h1>
@@ -33,13 +34,14 @@ session_start();
 if (isset($_SESSION['role']) && $_SESSION['role'] == '1') {
     include_once '../model/db.php';
     include_once '../model/phongban.php';
+    include_once '../model/chucvu.php';
     connectDB();
 
 
     if (isset($_GET['act'])) {
         switch ($_GET['act']) {
             case 'phongban':
-                $kq = getAll_pb();
+                $kq = getAll_PB();
                 include 'view/phongban.php';
                 break;
             case 'addpb':
@@ -49,15 +51,14 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == '1') {
                     $ghiChu = $_POST['ghiChu'];
                     insertPB($tenPhong,$vietTat,$ghiChu);
                 }
-
-                $kq = getAll_pb();
+                $kq = getAll_PB();
                 include 'view/phongban.php';
                 break;
             case 'updatepb':
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
-                    $kqOne = getOnePB($id);
-                    $kq = getAll_pb();
+                    $kqOne = getOne_PB($id);
+                    $kq = getAll_PB();
                     include 'view/phongban_update.php';
                 }
                 if (isset($_POST['maPhong'])) {
@@ -66,20 +67,52 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == '1') {
                     $vietTat = $_POST['vietTat'];
                     $ghiChu = $_POST['ghiChu'];
                     updatePB($maPhong, $tenPhong, $vietTat, $ghiChu);
-                    $kq = getAll_pb();
+                    $kq = getAll_PB();
                     include 'view/phongban.php';
                 }
                 break;
             case 'delpb':
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
-                    delpb($id);
-                    $kq = getAll_pb();
+                    delPB($id);
+                    $kq = getAll_PB();
                     include 'view/phongban.php';
                 }
                 break;
             case 'chucvu':
+                $kq = getAll_cv();
                 include 'view/chucvu.php';
+                break;
+            case 'addcv':
+                if ((isset($_POST['addcv'])) && ($_POST['addcv'])) {
+                    $chucVu = $_POST['chucVu'];
+                    insertCV($chucVu);
+                }
+                $kq = getAll_cv();
+                include 'view/chucvu.php';
+                break;
+            case 'updatecv':
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id'];
+                    $kqOne = getOne_CV($id);
+                    $kq = getAll_CV();
+                    include 'view/chucvu_update.php';
+                }
+                if (isset($_POST['maCV'])) {
+                    $maCV = $_POST['maCV'];
+                    $chucVu = $_POST['chucVu'];
+                    updateCV($maCV, $chucVu);
+                    $kq = getAll_CV();
+                    include 'view/chucvu.php';
+                }
+                break;
+            case 'delcv':
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id'];
+                    delCV($id);
+                    $kq = getAll_cv();
+                    include 'view/chucvu.php';
+                }
                 break;
             case 'nhanvien':
                 include 'view/nhanvien.php';

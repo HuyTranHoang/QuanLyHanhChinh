@@ -14,8 +14,12 @@
                     </div>
                     <div class="col-6" style="font-family: 'Montserrat', sans-serif;">
                         <h3 style="color: #6b6bf1" class="setfont">💓 Wild Gawr Gura appears 🎁</h3>
-                        <i style="color:red;">Happy coding and happy new year</i> 🎉🎉
+                        <i style="color:red; font-size: 1.2rem">~ Happy coding and happy new year 🎉🎉</i>
+                        <div class="row mt-3">
+                            <img src="../images/cuteMaidGura.jpg" class="img-fluid" style="width: 250px">
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>

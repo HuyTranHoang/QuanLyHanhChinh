@@ -21,7 +21,7 @@ function updatePB ($id, $tenPhong, $vietTat, $ghiChu)
     $stmt->execute();
 }
 
-function getOnePB($id)
+function getOne_PB($id)
 {
     $conn = connectDB();
     $stmt = $conn->prepare("SELECT * FROM phongban where maPhong =" . $id);
@@ -31,14 +31,14 @@ function getOnePB($id)
     return $kq;
 }
 
-function delpb($id)
+function delPB($id)
 {
     $conn = connectDB();
     $sql = "DELETE FROM phongban WHERE maPhong=" . $id;
     $conn->exec($sql);
 }
 
-function getAll_pb()
+function getAll_PB()
 {
     $conn = connectDB();
     $stmt = $conn->prepare("SELECT * FROM phongban");
