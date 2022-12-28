@@ -1,10 +1,6 @@
 # QuanLyHanhChinh
 
-PHP beginner projects for learning purposes.
-
-## BÀI 1
 Sử dụng PHP, MySQL tạo website quản lý quy trình đăng ký và duyệt nghỉ phép
-
 #####  a. Tạo CSDL như sau
 
 - ![DATABASE](etc/1.png)
