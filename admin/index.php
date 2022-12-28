@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,169 +17,133 @@
 </head>
 
 <body>
-<nav class="navbar navbar-dark bg-secondary container-fluid">
-    <div class="container position-relative p-2 offset-2">
-        <a class="navbar-brand" href="#" style="color: #D2E4F1">
-<!--            <img src="../images/logo.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">-->
-            <i class="fa-duotone fa-rocket-launch"></i>
-            Aptech - C2206L
-        </a>
-        <h1 class="navbar-text position-absolute top-50 start-50 translate-middle text-white">Quản Lý Hành Chính</h1>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <?php include 'view/header.php'; ?>
     </div>
-</nav>
+
+    <div class="row">
+        <div class="col-2 fixed-top" style="margin-left: -12px"><?php include_once 'view/sidebar.php' ?></div>
+        <div class="col-10 offset-2">
+            <?php
+            if (isset($_SESSION['role']) && $_SESSION['role'] == '1') {
+                include_once '../models/db.php';
+                include_once '../models/phongban.php';
+                include_once '../models/chucvu.php';
+                connectDB();
 
 
-<?php
+                if (isset($_GET['act'])) {
+                    switch ($_GET['act']) {
+                        case 'phongban':
+                            $kq = getAll_PB();
+                            include 'view/phongban.php';
+                            break;
+                        case 'addpb':
+                            if ((isset($_POST['addpb'])) && ($_POST['addpb'])) {
+                                $tenPhong = $_POST['tenPhong'];
+                                $vietTat = $_POST['vietTat'];
+                                $ghiChu = $_POST['ghiChu'];
+                                insertPB($tenPhong,$vietTat,$ghiChu);
+                            }
+                            $kq = getAll_PB();
+                            include 'view/phongban.php';
+                            break;
+                        case 'updatepb':
+                            if (isset($_GET['id'])) {
+                                $id = $_GET['id'];
+                                $kqOne = getOne_PB($id);
+                                $kq = getAll_PB();
+                                include 'view/phongban_update.php';
+                            }
+                            if (isset($_POST['maPhong'])) {
+                                $maPhong = $_POST['maPhong'];
+                                $tenPhong = $_POST['tenPhong'];
+                                $vietTat = $_POST['vietTat'];
+                                $ghiChu = $_POST['ghiChu'];
+                                updatePB($maPhong, $tenPhong, $vietTat, $ghiChu);
+                                $kq = getAll_PB();
+                                include 'view/phongban.php';
+                            }
+                            break;
+                        case 'delpb':
+                            if (isset($_GET['id'])) {
+                                $id = $_GET['id'];
+                                delPB($id);
+                                $kq = getAll_PB();
+                                include 'view/phongban.php';
+                            }
+                            break;
+                        case 'chucvu':
+                            $kq = getAll_cv();
+                            include 'view/chucvu.php';
+                            break;
+                        case 'addcv':
+                            if ((isset($_POST['addcv'])) && ($_POST['addcv'])) {
+                                $chucVu = $_POST['chucVu'];
+                                insertCV($chucVu);
+                            }
+                            $kq = getAll_cv();
+                            include 'view/chucvu.php';
+                            break;
+                        case 'updatecv':
+                            if (isset($_GET['id'])) {
+                                $id = $_GET['id'];
+                                $kqOne = getOne_CV($id);
+                                $kq = getAll_CV();
+                                include 'view/chucvu_update.php';
+                            }
+                            if (isset($_POST['maCV'])) {
+                                $maCV = $_POST['maCV'];
+                                $chucVu = $_POST['chucVu'];
+                                updateCV($maCV, $chucVu);
+                                $kq = getAll_CV();
+                                include 'view/chucvu.php';
+                            }
+                            break;
+                        case 'delcv':
+                            if (isset($_GET['id'])) {
+                                $id = $_GET['id'];
+                                delCV($id);
+                                $kq = getAll_cv();
+                                include 'view/chucvu.php';
+                            }
+                            break;
+                        case 'nhanvien':
+                            include 'view/nhanvien.php';
+                            break;
+                        case 'ngayphep':
+                            include 'view/ngayphep.php';
+                            break;
+                        case 'phieunghiphep':
+                            include 'view/phieunghiphep.php';
+                            break;
+                        case 'thoat':
+                            if (isset($_SESSION['role'])) {
+                                unset($_SESSION['role']);
+                            }
+                            header('location:../login.php');
+                            break;
+                        default:
+                            include 'view/home.php';
+                            break;
+                    }
+                } else {
+                    include 'view/home.php';
+                }
+            } else {
+                header('location: ../login.php');
+            }
+            ?>
+        </div>
+    </div>
 
-session_start();
-if (isset($_SESSION['role']) && $_SESSION['role'] == '1') {
-    include_once '../model/db.php';
-    include_once '../model/phongban.php';
-    include_once '../model/chucvu.php';
-    connectDB();
-
-
-    if (isset($_GET['act'])) {
-        switch ($_GET['act']) {
-            case 'phongban':
-                $kq = getAll_PB();
-                include 'view/phongban.php';
-                break;
-            case 'addpb':
-                if ((isset($_POST['addpb'])) && ($_POST['addpb'])) {
-                    $tenPhong = $_POST['tenPhong'];
-                    $vietTat = $_POST['vietTat'];
-                    $ghiChu = $_POST['ghiChu'];
-                    insertPB($tenPhong,$vietTat,$ghiChu);
-                }
-                $kq = getAll_PB();
-                include 'view/phongban.php';
-                break;
-            case 'updatepb':
-                if (isset($_GET['id'])) {
-                    $id = $_GET['id'];
-                    $kqOne = getOne_PB($id);
-                    $kq = getAll_PB();
-                    include 'view/phongban_update.php';
-                }
-                if (isset($_POST['maPhong'])) {
-                    $maPhong = $_POST['maPhong'];
-                    $tenPhong = $_POST['tenPhong'];
-                    $vietTat = $_POST['vietTat'];
-                    $ghiChu = $_POST['ghiChu'];
-                    updatePB($maPhong, $tenPhong, $vietTat, $ghiChu);
-                    $kq = getAll_PB();
-                    include 'view/phongban.php';
-                }
-                break;
-            case 'delpb':
-                if (isset($_GET['id'])) {
-                    $id = $_GET['id'];
-                    delPB($id);
-                    $kq = getAll_PB();
-                    include 'view/phongban.php';
-                }
-                break;
-            case 'chucvu':
-                $kq = getAll_cv();
-                include 'view/chucvu.php';
-                break;
-            case 'addcv':
-                if ((isset($_POST['addcv'])) && ($_POST['addcv'])) {
-                    $chucVu = $_POST['chucVu'];
-                    insertCV($chucVu);
-                }
-                $kq = getAll_cv();
-                include 'view/chucvu.php';
-                break;
-            case 'updatecv':
-                if (isset($_GET['id'])) {
-                    $id = $_GET['id'];
-                    $kqOne = getOne_CV($id);
-                    $kq = getAll_CV();
-                    include 'view/chucvu_update.php';
-                }
-                if (isset($_POST['maCV'])) {
-                    $maCV = $_POST['maCV'];
-                    $chucVu = $_POST['chucVu'];
-                    updateCV($maCV, $chucVu);
-                    $kq = getAll_CV();
-                    include 'view/chucvu.php';
-                }
-                break;
-            case 'delcv':
-                if (isset($_GET['id'])) {
-                    $id = $_GET['id'];
-                    delCV($id);
-                    $kq = getAll_cv();
-                    include 'view/chucvu.php';
-                }
-                break;
-            case 'nhanvien':
-                include 'view/nhanvien.php';
-                break;
-            case 'ngayphep':
-                include 'view/ngayphep.php';
-                break;
-            case 'phieunghiphep':
-                include 'view/phieunghiphep.php';
-                break;
-            case 'thoat':
-                if (isset($_SESSION['role'])) {
-                    unset($_SESSION['role']);
-                }
-                header('location:../login.php');
-                break;
-            default:
-                include 'view/home.php';
-                break;
-        }
-    } else {
-        include 'view/home.php';
-    }
-} else {
-    header('location: ../login.php');
-}
-
-
-?>
+    <div class="row">
+        <?php include 'view/footer.php'; ?>
+    </div>
+</div>
 
 </body>
 </html>
-
-<?php
-//    if (isset($_POST['userName']) && isset($_POST['password'])) {
-//        $conn = connectDB();
-//        $user = [];
-//
-//        $query ="select * from nhanvien where userName= ? and password = ?";
-//        $pre = $conn->prepare($query);
-//        $pre->bind_param("ss",$userName,$password);
-//        $userName = $_POST['userName'];
-//        $password = $_POST['password'];
-//        $t = $pre->execute();
-//        $result = $pre->get_result();
-//        if (mysqli_num_rows($result) == 0 ) {
-//            header("Location: ../login.php?p=invalid");
-//            exit;
-//        }
-//        while ( $arr = $result->fetch_row()){
-//            $user = $arr;
-//        }
-//        $user = $result->fetch_assoc();
-//        $conn->close();
-//
-//        echo '<pre>';
-//        print_r($user);
-//        echo '</pre>';
-//
-//    } else {
-//        header("Location: ../login.php?p=invalid");
-//        exit;
-//    }
-//
-//
-//    echo '<h1 class="text-primary">Welcome back '.$user['tenNV'].'</h1>'
-//
-
-?>

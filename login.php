@@ -1,7 +1,7 @@
 <?php
 session_start();
-include 'model/db.php';
-include 'model/user.php';
+include 'models/db.php';
+include 'models/user.php';
 
 if (isset($_POST['userName']) && isset($_POST['password'])) {
     $userName = $_POST['userName'];
