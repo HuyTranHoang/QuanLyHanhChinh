@@ -3,24 +3,29 @@
 Sử dụng PHP, MySQL tạo website quản lý quy trình đăng ký và duyệt nghỉ phép
 #####  a. Tạo CSDL như sau
 
-- ![DATABASE](etc/1.png)
+![DATABASE](etc/1.png)
 
 Trong đó các Tables như sau
 - Phòng ban: Lưu thông tin các phòng ban
-  ![DATABASE](etc/2.png)
+
+![DATABASE](etc/2.png)
 
 - Chức vụ: Lưu thông tin các chức vụ có thể có của nhân viên
-  ![DATABASE](etc/3.png)
+  
+![DATABASE](etc/3.png)
 
 - Nhân viên: Lưu thông tin của một nhân viên
-  ![DATABASE](etc/4.png)
+  
+![DATABASE](etc/4.png)
 
 - Tổng ngày nghỉ: Lưu thông tin tổng số ngày nghỉ, số ngày đã nghỉ của một nhân
   viên trong từng năm
-  ![DATABASE](etc/5.png)
+  
+![DATABASE](etc/5.png)
 
 - Phiếu nghỉ: Lưu thông tin chi tiết 1 phiếu đăng ký nghỉ phép của nhân viên
-  ![DATABASE](etc/6.png)
+  
+![DATABASE](etc/6.png)
 
 ##### b. Tạo trang đăng nhập cho phép người dùng đăng nhập (user admin được tạo sẵn với chức vụ là admin có toàn quyền trên hệ thống)
 ![DATABASE](etc/7.png)
