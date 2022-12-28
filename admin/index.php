@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+session_start();
+//ob_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,21 +14,21 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,300&display=swap"
+          rel="stylesheet">
     <script defer src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="../js/main.js"></script>
     <title>Admin</title>
 </head>
-
 <body>
-
-
 <div class="container-fluid">
     <div class="row">
         <?php include 'view/header.php'; ?>
     </div>
-
     <div class="row">
-        <div class="col-2 fixed-top" style="margin-left: -12px"><?php include_once 'view/sidebar.php' ?></div>
+        <div class="col-2 fixed-top" style="margin-left: -12px">
+            <?php include_once 'view/sidebar.php' ?>
+        </div>
         <div class="col-10 offset-2">
             <?php
             if (isset($_SESSION['role']) && $_SESSION['role'] == '1') {
@@ -33,8 +36,6 @@
                 include_once '../models/phongban.php';
                 include_once '../models/chucvu.php';
                 connectDB();
-
-
                 if (isset($_GET['act'])) {
                     switch ($_GET['act']) {
                         case 'phongban':
@@ -46,7 +47,7 @@
                                 $tenPhong = $_POST['tenPhong'];
                                 $vietTat = $_POST['vietTat'];
                                 $ghiChu = $_POST['ghiChu'];
-                                insertPB($tenPhong,$vietTat,$ghiChu);
+                                insertPB($tenPhong, $vietTat, $ghiChu);
                             }
                             $kq = getAll_PB();
                             include 'view/phongban.php';
@@ -139,11 +140,11 @@
             ?>
         </div>
     </div>
-
     <div class="row">
-        <?php include 'view/footer.php'; ?>
+        <?php include 'view/footer.php';
+        ob_end_flush();
+        ?>
     </div>
 </div>
-
 </body>
 </html>
