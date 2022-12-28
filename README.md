@@ -76,16 +76,18 @@ Phiếu nghỉ phép được chuyển đến cho người quản lý trực ti�
 
 ![DATABASE](etc/14.png)
 Các trạng thái của phiếu bao gồm:
-Chờ duyệt
-Đã duyệt
-Từ chối
+* Chờ duyệt
+* Đã duyệt
+* Từ chối
+
 Có các loại nghỉ phép sau:
 - Phép năm (0)
 - Nghỉ bệnh (1)
 - Nghỉ thai sản (2)
 - Nghỉ việc riêng (3)
 - Nghỉ không lương (4)
-  Nếu tổng số ngày nghỉ ( số ngày hiện tại trên database) của nhân viên lớn hơn hoặc
+
+Nếu tổng số ngày nghỉ ( số ngày hiện tại trên database) của nhân viên lớn hơn hoặc
   bằng tổng số ngày nghỉ được phép nghỉ trong năm của nhân viên thì chỉ cho phép
   chọn nghỉ không lương
   Nếu số ngày nghỉ trên db nhỏ hơn tổng ngày được nghỉ nhưng số ngày trên db + số
