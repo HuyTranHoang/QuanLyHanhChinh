@@ -11,15 +11,28 @@
 //    $kq = $stmt->fetchAll();
 //    return $kq[0]['maCV'];
 //}
-function checkUser($user, $pass) {
-    $conn = connectDB();
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT * FROM nhanvien WHERE userName=:username AND password=:password");
-    $stmt->bindParam(":username", $user);
-    $stmt->bindParam(":password", $pass);
-    $stmt->execute();
-    $kq = $stmt->fetch(PDO::FETCH_ASSOC);
-    return (empty($kq)) ? null : $kq['maCV'];
+
+class user {
+    public $conn;
+    public function __construct()
+    {
+    }
+
+    function checkUser($user, $pass)
+    {
+        $db = new db();
+        $this->conn = $db->connectDB();
+        $query = "SELECT * FROM nhanvien WHERE userName=:username AND password=:password";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":username", $user);
+        $stmt->bindParam(":password", $pass);
+        $stmt->execute();
+        $kq = $stmt->fetch(PDO::FETCH_ASSOC);
+        return (empty($kq)) ? null : $kq['maCV'];
+    }
+
+}
+
 
     // Lấy nhiều dòng
 //    $kq = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -40,4 +53,4 @@ function checkUser($user, $pass) {
 //    } else {
 //        return $kq['maCV'];
 //    }
-}
+

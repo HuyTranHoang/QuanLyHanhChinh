@@ -1,23 +1,46 @@
 <?php
 
-function connectDB()
+class db
 {
-    $host = 'localhost';
-    $username = 'root';
-    $password = '';
-    $dbname = 'quanlyhanhchinh';
-//    $conn = new mysqli($host, $user, $password, $dbname);
-//    if (!$conn) {
-//        die("Connection failed: " . mysqli_connect_error());
-//    }
-//    echo "Connected successfully </br>";
-//    return $conn;
-    try {
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//        echo "Connected successfully";
-    } catch (PDOException $e) {
-//        echo "Connection failed: " . $e->getMessage();
+    private $mDB = null; // Chứa object connect đến DB
+
+    private $config = [];
+
+    public function __construct()
+    {
     }
-    return $conn;
+
+    public function connectDB()
+    {
+        $this->config = getDatabaseInfo();
+        $host = $this->config['host'];
+        $username = $this->config['username'];
+        $password = $this->config['password'];
+        $dbName = $this->config['dbName'];
+
+        if (!isset($this->mDB)) {
+            try {
+                $this->mDB = new PDO("mysql:host=$host;dbname=$dbName", $username, $password, array(PDO::ATTR_PERSISTENT => true));
+                $this->mDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                return false;
+            }
+        }
+        return $this->mDB;
+    }
 }
+//
+//function connectDB()
+//{
+//    $host = 'localhost';
+//    $username = 'root';
+//    $password = '';
+//    $dbname = 'quanlyhanhchinh';
+//    try {
+//        $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+//        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//    } catch (PDOException $e) {
+//        echo 'Kết nối database thất bại';
+//    }
+//    return $conn;
+//}

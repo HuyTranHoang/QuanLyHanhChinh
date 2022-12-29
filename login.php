@@ -1,12 +1,15 @@
 <?php
 session_start();
+const ACCESS_ALLOWED = true;
+include 'config.php';
 include 'models/db.php';
 include 'models/user.php';
 
 if (isset($_POST['userName']) && isset($_POST['password'])) {
+    $user = new user();
     $userName = $_POST['userName'];
     $password = $_POST['password'];
-    $role = checkUser($userName, $password);
+    $role = $user->checkUser($userName, $password);
     $_SESSION['role'] = $role;
     if ($role == 1) {
         header('location: admin/index.php');

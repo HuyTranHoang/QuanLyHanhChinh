@@ -1,6 +1,8 @@
 <?php
 session_start();
 //ob_start();
+const ACCESS_ALLOWED = true;
+include '../config.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,31 +34,35 @@ session_start();
         <div class="col-10 offset-2">
             <?php
             if (isset($_SESSION['role']) && $_SESSION['role'] == '1') {
+
                 include_once '../models/db.php';
                 include_once '../models/phongban.php';
                 include_once '../models/chucvu.php';
-                connectDB();
+//                connectDB();
                 if (isset($_GET['act'])) {
                     switch ($_GET['act']) {
                         case 'phongban':
-                            $kq = getAll_PB();
+                            $pb = new phongBan();
+                            $kq = $pb->getAll_PB();
                             include 'view/phongban.php';
                             break;
                         case 'addpb':
+                            $pb = new phongBan();
                             if ((isset($_POST['addpb'])) && ($_POST['addpb'])) {
                                 $tenPhong = $_POST['tenPhong'];
                                 $vietTat = $_POST['vietTat'];
                                 $ghiChu = $_POST['ghiChu'];
-                                insertPB($tenPhong, $vietTat, $ghiChu);
+                                $pb->insertPB($tenPhong, $vietTat, $ghiChu);
                             }
-                            $kq = getAll_PB();
+                            $kq = $pb->getAll_PB();
                             include 'view/phongban.php';
                             break;
                         case 'updatepb':
+                            $pb = new phongBan();
                             if (isset($_GET['id'])) {
                                 $id = $_GET['id'];
-                                $kqOne = getOne_PB($id);
-                                $kq = getAll_PB();
+                                $kqOne = $pb->getOne_PB($id);
+                                $kq = $pb->getAll_PB();
                                 include 'view/phongban_update.php';
                             }
                             if (isset($_POST['maPhong'])) {
@@ -64,16 +70,17 @@ session_start();
                                 $tenPhong = $_POST['tenPhong'];
                                 $vietTat = $_POST['vietTat'];
                                 $ghiChu = $_POST['ghiChu'];
-                                updatePB($maPhong, $tenPhong, $vietTat, $ghiChu);
-                                $kq = getAll_PB();
+                                $pb->updatePB($maPhong, $tenPhong, $vietTat, $ghiChu);
+                                $kq = $pb->getAll_PB();
                                 include 'view/phongban.php';
                             }
                             break;
                         case 'delpb':
+                            $pb = new phongBan();
                             if (isset($_GET['id'])) {
                                 $id = $_GET['id'];
-                                delPB($id);
-                                $kq = getAll_PB();
+                                $pb->delPB($id);
+                                $kq = $pb->getAll_PB();
                                 include 'view/phongban.php';
                             }
                             break;
