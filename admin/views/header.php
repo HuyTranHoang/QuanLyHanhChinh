@@ -1,7 +1,7 @@
 <?php
-echo '<nav class="navbar navbar-dark bg-secondary container-fluid">
+echo '<nav class="navbar navbar-light container-fluid" style="background-color: #FFB6C1">
     <div class="container position-relative p-2 offset-2">
-        <a class="navbar-brand" href="#" style="color: #D2E4F1">
+        <a class="navbar-brand text-white" href="#">
             <!--            <img src="../images/logo.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">-->
             <i class="fa-duotone fa-rocket-launch"></i>
             Aptech - C2206L

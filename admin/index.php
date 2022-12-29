@@ -1,8 +1,5 @@
 <?php
 session_start();
-//ob_start();
-const ACCESS_ALLOWED = true;
-include '../config.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,33 +18,33 @@ include '../config.php';
     <script defer src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="../js/main.js"></script>
     <title>Admin</title>
+
+    <style>
+
+    </style>
 </head>
 <body>
 <div class="container-fluid">
     <div class="row">
-        <?php include 'view/header.php'; ?>
+        <?php include 'views/header.php'; ?>
     </div>
     <div class="row">
         <div class="col-2 fixed-top" style="margin-left: -12px">
-            <?php include_once 'view/sidebar.php' ?>
+            <?php include_once 'views/sidebar.php' ?>
         </div>
         <div class="col-10 offset-2">
             <?php
             if (isset($_SESSION['role']) && $_SESSION['role'] == '1') {
-
-                include_once '../models/db.php';
-                include_once '../models/phongban.php';
-                include_once '../models/chucvu.php';
-//                connectDB();
+                include '../includes/autoloader.inc.php';
                 if (isset($_GET['act'])) {
                     switch ($_GET['act']) {
                         case 'phongban':
-                            $pb = new phongBan();
+                            $pb = new PhongBan();
                             $kq = $pb->getAll_PB();
-                            include 'view/phongban.php';
+                            include 'views/phongban.php';
                             break;
                         case 'addpb':
-                            $pb = new phongBan();
+                            $pb = new PhongBan();
                             if ((isset($_POST['addpb'])) && ($_POST['addpb'])) {
                                 $tenPhong = $_POST['tenPhong'];
                                 $vietTat = $_POST['vietTat'];
@@ -55,15 +52,15 @@ include '../config.php';
                                 $pb->insertPB($tenPhong, $vietTat, $ghiChu);
                             }
                             $kq = $pb->getAll_PB();
-                            include 'view/phongban.php';
+                            include 'views/phongban.php';
                             break;
                         case 'updatepb':
-                            $pb = new phongBan();
+                            $pb = new PhongBan();
                             if (isset($_GET['id'])) {
                                 $id = $_GET['id'];
                                 $kqOne = $pb->getOne_PB($id);
                                 $kq = $pb->getAll_PB();
-                                include 'view/phongban_update.php';
+                                include 'views/phongban_update.php';
                             }
                             if (isset($_POST['maPhong'])) {
                                 $maPhong = $_POST['maPhong'];
@@ -72,84 +69,89 @@ include '../config.php';
                                 $ghiChu = $_POST['ghiChu'];
                                 $pb->updatePB($maPhong, $tenPhong, $vietTat, $ghiChu);
                                 $kq = $pb->getAll_PB();
-                                include 'view/phongban.php';
+                                include 'views/phongban.php';
                             }
                             break;
                         case 'delpb':
-                            $pb = new phongBan();
+                            $pb = new PhongBan();
                             if (isset($_GET['id'])) {
                                 $id = $_GET['id'];
                                 $pb->delPB($id);
                                 $kq = $pb->getAll_PB();
-                                include 'view/phongban.php';
+                                include 'views/phongban.php';
                             }
                             break;
                         case 'chucvu':
-                            $kq = getAll_cv();
-                            include 'view/chucvu.php';
+                            $cv = new ChucVu();
+                            $kq = $cv->getAll_CV();
+                            include 'views/chucvu.php';
                             break;
                         case 'addcv':
+                            $cv = new ChucVu();
                             if ((isset($_POST['addcv'])) && ($_POST['addcv'])) {
                                 $chucVu = $_POST['chucVu'];
-                                insertCV($chucVu);
+                                $cv->insertCV($chucVu);
                             }
-                            $kq = getAll_cv();
-                            include 'view/chucvu.php';
+                            $kq = $cv->getAll_cv();
+                            include 'views/chucvu.php';
                             break;
                         case 'updatecv':
+                            $cv = new ChucVu();
                             if (isset($_GET['id'])) {
                                 $id = $_GET['id'];
-                                $kqOne = getOne_CV($id);
-                                $kq = getAll_CV();
-                                include 'view/chucvu_update.php';
+                                $kqOne = $cv->getOne_CV($id);
+                                $kq = $cv->getAll_CV();
+                                include 'views/chucvu_update.php';
                             }
                             if (isset($_POST['maCV'])) {
                                 $maCV = $_POST['maCV'];
                                 $chucVu = $_POST['chucVu'];
-                                updateCV($maCV, $chucVu);
-                                $kq = getAll_CV();
-                                include 'view/chucvu.php';
+                                $cv->updateCV($maCV, $chucVu);
+                                $kq = $cv->getAll_CV();
+                                include 'views/chucvu.php';
                             }
                             break;
                         case 'delcv':
+                            $cv = new ChucVu();
                             if (isset($_GET['id'])) {
                                 $id = $_GET['id'];
-                                delCV($id);
-                                $kq = getAll_cv();
-                                include 'view/chucvu.php';
+                                $cv->delCV($id);
+                                $kq = $cv->getAll_cv();
+                                include 'views/chucvu.php';
                             }
                             break;
                         case 'nhanvien':
-                            include 'view/nhanvien.php';
+                            include 'views/nhanvien.php';
                             break;
                         case 'ngayphep':
-                            include 'view/ngayphep.php';
+                            include 'views/ngayphep.php';
                             break;
                         case 'phieunghiphep':
-                            include 'view/phieunghiphep.php';
+                            include 'views/phieunghiphep.php';
                             break;
                         case 'thoat':
                             if (isset($_SESSION['role'])) {
                                 unset($_SESSION['role']);
                             }
                             header('location:../login.php');
+                            exit();
                             break;
                         default:
-                            include 'view/home.php';
+                            include 'views/home.php';
                             break;
                     }
                 } else {
-                    include 'view/home.php';
+                    include 'views/home.php';
                 }
             } else {
                 header('location: ../login.php');
+                exit();
             }
             ?>
         </div>
     </div>
     <div class="row">
-        <?php include 'view/footer.php';
-        ob_end_flush();
+        <?php include 'views/footer.php';
         ?>
     </div>
 </div>
