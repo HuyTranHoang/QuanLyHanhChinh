@@ -1,7 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif
+}
+
 :root {
     --primaryColor: #FFB6C1;
+}
+
+.text-pink {
+    color: var(--primaryColor);
 }
 
 .nav-pills > li > a.active {
     background-color: var(--primaryColor) !important;
 }
+
+.loginform {
+    position: relative;
+    width: 720px;
+    height: 440px;
+    margin: 20px auto;
+    border: 1px solid #dddd;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.loginform .btn-primary {
+    background-color: var(--primaryColor);
+    border: 0;
+    font-size: 14px;
+}
+
+.footer-login .text-muted {
+    font-size: 12px;
+}
+

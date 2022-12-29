@@ -45,42 +45,52 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
         </div>
     </nav>
 
-    <div class="container">
-        <form method="POST" action="">
-            <div class="mb-3 mt-3 row">
-                <label for="userName" class="col-sm-1 col-form-label">User Name</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control shadow-sm" id="userName" name="userName"
-                           placeholder="User Name...">
-                </div>
+    <div class="loginform mt-5">
+        <div class="row">
+            <div class="col">
+                <img src="./images/loginForm.jpeg" class="img-fluid">
             </div>
+            <div class="col">
+                <form method="POST" action="">
+                    <div class="my-3 row text-center text-pink">
+                        <i class="fa-duotone fa-flower fs-3"></i>
+                        <h3 class="mt-3 mb-5">Hello again!</h3>
+                    </div>
 
-            <div class="mb-3 row">
-                <label for="password" class="col-sm-1 col-form-label">Password</label>
-                <div class="col-sm-6">
-                    <input type="password" class="form-control shadow-sm" id="password" name="password"
-                           placeholder="Password...">
-                </div>
+                    <div class="form-floating mb-3 col-11">
+                        <input type="text" class="form-control" id="userName" name="userName" placeholder="userName">
+                        <label for="userName">Tài khoản</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-11">
+                        <input type="password" class="form-control" id="password" name="password"
+                               placeholder="password">
+                        <label for="password">Mật khẩu</label>
+                    </div>
+
+
+                    <button class="btn btn-primary">Đăng nhập <i class="ps-3 fa-duotone fa-right-to-bracket"></i>
+                    </button>
+
+                    <div class="col">
+                        <?php
+                        if (isset($loginErr)) {
+                            echo '<div class="text-danger mt-3">';
+                            echo '<h6> <i class="fa-duotone fa-circle-xmark"></i> ' . $loginErr . '</h6>';
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+
+                    <div class="col mt-3">
+                        <div class="footer-login">
+                            <p class="text-muted">Chưa có tài khoản? <a href="#" class="text-decoration-none">Đăng ký</a> ngay</p>
+                        </div>
+                    </div>
             </div>
-            <div class="col-sm-6 offset-sm-1">
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="rememberInfo" name="rememberInfo">
-                    <label class="form-check-label" for="rememberInfo">Ghi nhớ</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Đăng nhập</button>
-                <?php
-                if (isset($loginErr)) {
-                    echo '<div class="text-danger mt-3">';
-                    echo '<h6> <i class="fa-duotone fa-circle-xmark"></i> ' . $loginErr . '</h6>';
-                    echo '</div>';
-                }
-                ?>
-            </div>
-
-        </form>
-
-
+        </div>
     </div>
+
 
     </body>
     </html>
