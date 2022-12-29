@@ -3,8 +3,8 @@
     <hr>
     <form method="POST" action="index.php?act=updatecv" class="">
         <div class="mb-3 mt-3 row justify-content-center">
-            <label for="tenPhong" class="col-sm-2 col-form-label">Tên chức vụ</label>
-            <div class="col-sm-6">
+            <label for="tenPhong" class="col-2 col-form-label offset-2">Tên chức vụ</label>
+            <div class="col">
                 <input type="text" class="form-control shadow-sm" id="chucVu" name="chucVu"
                        placeholder="Chức vụ..." value="<?= $kqOne['chucVu'] ?>">
             </div>
@@ -12,8 +12,8 @@
 
         <input type="hidden" name="maCV" value="<?= $kqOne['maCV'] ?>">
 
-        <div class="mb-3 col-sm-6">
-            <button type="submit" class="btn btn-primary d-inline-block">Cập nhật</button>
+        <div class="mb-3 col-6">
+            <button type="submit" class="btn text-light d-inline-block" style="background-color: var(--primaryColor);">Cập nhật</button>
         </div>
     </form>
 

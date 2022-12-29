@@ -3,24 +3,24 @@
     <hr>
     <form method="POST" action="index.php?act=updatepb" class="">
         <div class="mb-3 mt-3 row justify-content-center">
-            <label for="tenPhong" class="col-sm-1 col-form-label">Tên phòng</label>
-            <div class="col-sm-6">
+            <label for="tenPhong" class="col-2 col-form-label offset-2">Tên phòng</label>
+            <div class="col">
                 <input type="text" class="form-control shadow-sm" id="tenPhong" name="tenPhong"
                        placeholder="Tên phòng..." value="<?= $kqOne['tenPhong'] ?>">
             </div>
         </div>
 
         <div class="mb-3 row justify-content-center">
-            <label for="vietTat" class="col-sm-1 col-form-label">Tên viết tắt</label>
-            <div class="col-sm-6">
+            <label for="vietTat" class="col-2 col-form-label offset-2">Tên viết tắt</label>
+            <div class="col">
                 <input type="text" class="form-control shadow-sm" id="vietTat" name="vietTat"
                        placeholder="Tên viết tắt..." value="<?= $kqOne['vietTat'] ?>">
             </div>
         </div>
 
         <div class="mb-3 row justify-content-center">
-            <label for="vietTat" class="col-sm-1 col-form-label">Ghi chú</label>
-            <div class="col-sm-6">
+            <label for="vietTat" class="col-2 col-form-label offset-2">Ghi chú</label>
+            <div class="col">
                 <input type="text" class="form-control shadow-sm" id="ghiChu" name="ghiChu"
                        placeholder="Ghi chú..." value="<?= $kqOne['ghiChu'] ?>">
             </div>
@@ -28,8 +28,8 @@
 
         <input type="hidden" name="maPhong" value="<?= $kqOne['maPhong'] ?>">
 
-        <div class="mb-3 col-sm-6">
-            <button type="submit" class="btn btn-primary d-inline-block">Cập nhật</button>
+        <div class="mb-3 col-6">
+            <button type="submit" class="btn text-light d-inline-block" style="background-color: var(--primaryColor);">Cập nhật</button>
         </div>
     </form>
 

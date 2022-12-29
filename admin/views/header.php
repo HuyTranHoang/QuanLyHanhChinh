@@ -1,5 +1,5 @@
 <?php
-echo '<nav class="navbar navbar-light container-fluid" style="background-color: #FFB6C1">
+echo '<nav class="navbar navbar-light container-fluid" style="background-color: var(--primaryColor)">
     <div class="container position-relative p-2 offset-2">
         <a class="navbar-brand text-white" href="#">
             <!--            <img src="../images/logo.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">-->

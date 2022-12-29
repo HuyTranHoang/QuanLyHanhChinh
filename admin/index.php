@@ -17,11 +17,7 @@ session_start();
           rel="stylesheet">
     <script defer src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="../js/main.js"></script>
-    <title>Admin</title>
-
-    <style>
-
-    </style>
+    <title>Quản lý hành chính</title>
 </head>
 <body>
 <div class="container-fluid">
@@ -32,7 +28,7 @@ session_start();
         <div class="col-2 fixed-top" style="margin-left: -12px">
             <?php include_once 'views/sidebar.php' ?>
         </div>
-        <div class="col-10 offset-2">
+        <div class="col-8 offset-2">
             <?php
             if (isset($_SESSION['role']) && $_SESSION['role'] == '1') {
                 include '../includes/autoloader.inc.php';
@@ -121,6 +117,8 @@ session_start();
                             }
                             break;
                         case 'nhanvien':
+                            $nv = new NhanVien();
+                            $kq = $nv->getAll_NV_PB_CV();
                             include 'views/nhanvien.php';
                             break;
                         case 'ngayphep':

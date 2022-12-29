@@ -1,5 +1,5 @@
 <div class="mt-3">
-    <h3 class="text-center">ĐÂY LÀ TRANG CHỦ</h3>
+    <h3 class="text-center">HOME PLACEHOLDER</h3>
     <hr>
     <div class="row">
         <div class="col-3">

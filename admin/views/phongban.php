@@ -3,31 +3,31 @@
     <hr>
     <form method="POST" action="index.php?act=addpb" class="">
         <div class="mb-3 mt-3 row justify-content-center">
-            <label for="tenPhong" class="col-sm-1 col-form-label">Tên phòng</label>
-            <div class="col-sm-6">
+            <label for="tenPhong" class="col-2 col-form-label offset-2">Tên phòng</label>
+            <div class="col">
                 <input type="text" class="form-control shadow-sm" id="tenPhong" name="tenPhong"
                        placeholder="Tên phòng...">
             </div>
         </div>
 
         <div class="mb-3 row justify-content-center">
-            <label for="vietTat" class="col-sm-1 col-form-label">Tên viết tắt</label>
-            <div class="col-sm-6">
+            <label for="vietTat" class="col-2 col-form-label offset-2">Tên viết tắt</label>
+            <div class="col">
                 <input type="text" class="form-control shadow-sm" id="vietTat" name="vietTat"
                        placeholder="Tên viết tắt...">
             </div>
         </div>
 
         <div class="mb-3 row justify-content-center">
-            <label for="vietTat" class="col-sm-1 col-form-label">Ghi chú</label>
-            <div class="col-sm-6">
+            <label for="vietTat" class="col-2 col-form-label offset-2">Ghi chú</label>
+            <div class="col">
                 <input type="text" class="form-control shadow-sm" id="ghiChu" name="ghiChu"
                        placeholder="Ghi chú...">
             </div>
         </div>
 
-        <div class="mb-3 col-sm-6">
-            <input type="submit" class="btn btn-primary d-inline-block" name="addpb" value="Thêm mới">
+        <div class="mb-3 col-6">
+            <input type="submit" class="btn d-inline-block text-white" name="addpb" value="Thêm mới" style="background-color: var(--primaryColor);">
         </div>
     </form>
 
