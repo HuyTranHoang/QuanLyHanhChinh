@@ -1,7 +1,8 @@
 # QuanLyHanhChinh
 
+
 Sử dụng PHP, MySQL tạo website quản lý quy trình đăng ký và duyệt nghỉ phép
-#####  a. Tạo CSDL như sau
+###  a. Tạo CSDL như sau
 
 ![DATABASE](etc/1.png)
 
@@ -27,13 +28,13 @@ Trong đó các Tables như sau
   
 ![DATABASE](etc/6.png)
 
-##### b. Tạo trang đăng nhập cho phép người dùng đăng nhập (user admin được tạo sẵn với chức vụ là admin có toàn quyền trên hệ thống)
+### b. Tạo trang đăng nhập cho phép người dùng đăng nhập (user admin được tạo sẵn với chức vụ là admin có toàn quyền trên hệ thống)
 ![DATABASE](etc/7.png)
 Nếu người đăng nhập với quyền là admin thì chuyển đến trang admin ( xem câu b)
 Nếu người đăng nhập là nhân viên thì chuyển đến trang chủ (xem câu d)
 
 
-##### c. Tạo trang web cho phép thêm mới: phòng ban, chức vụ, nhân viên. Chỉ nhân viên là admin mới có quyền này
+### c. Tạo trang web cho phép thêm mới: phòng ban, chức vụ, nhân viên. Chỉ nhân viên là admin mới có quyền này
 ![DATABASE](etc/8.png)
 
 Người dùng click vào dấu x, cho phép xóa phòng được chọn
@@ -61,7 +62,7 @@ nghỉ)
 Khi người dùng click vào “Phiếu nghỉ phép” chuyển đến trang tạo phiếu nghỉ
 phép của người dùng đó ( xem câu e)
 Người dùng click “Thoát”➔ trả về trang login.php
-##### d. Tạo trang chính, trang chính liệt kê danh sách phiếu nghỉ phép trong 2 trường hợp:
+### d. Tạo trang chính, trang chính liệt kê danh sách phiếu nghỉ phép trong 2 trường hợp:
 - Người dùng là cấp quản lý:
   o Hiển thị danh sách các phiếu nghỉ của nhân viên trong phòng ban mình mà
   những phiếu này chưa được duyệt ( đang chờ duyệt)
@@ -71,7 +72,7 @@ Người dùng click “Thoát”➔ trả về trang login.php
   o Hiển thị danh sách các phiếu nghỉ phép của sắp xếp theo trạng thái (xem
   câu e )
 
-##### e. Tạo trang web cho phép người dùng tạo phiếu nghỉ phép
+### e. Tạo trang web cho phép người dùng tạo phiếu nghỉ phép
 Phiếu nghỉ phép được chuyển đến cho người quản lý trực tiếp
 
 ![DATABASE](etc/14.png)
@@ -93,6 +94,6 @@ Nếu tổng số ngày nghỉ ( số ngày hiện tại trên database) của n
   Nếu số ngày nghỉ trên db nhỏ hơn tổng ngày được nghỉ nhưng số ngày trên db + số
   ngày trên phiếu lớn hơn tổng số ngày cho phép thì không cho tạo phiếu (khi đó
   người dùng bắt buột tạo 2 phiếu riêng biệt)
-#####  f. Tạo trang web cho phép cấp quản lý duyệt phiếu nghỉ phép của nhân viên
+###  f. Tạo trang web cho phép cấp quản lý duyệt phiếu nghỉ phép của nhân viên
 ![DATABASE](etc/15.png)
 - Khi người quản lý duyệt phiếu nghỉ phép, số ngày đã nghỉ của nhân viên này tăng lên 1
