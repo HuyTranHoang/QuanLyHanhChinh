@@ -9,7 +9,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile:scss": "sass scss/style.scss css/style.css"
+    "compiler:scss": "sass scss/style.scss css/style.css",
+    "minify:css": "minify css/style.css > css/style.min.css"
   },
   "repository": {
     "type": "git",
