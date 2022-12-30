@@ -6,35 +6,22 @@ class NhanVien extends DB
     {
     }
 
-    public function insertNV($tenPhong, $vietTat, $ghiChu)
+    public function insertNV($tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV)
     {
         $conn = $this->connectDB();
-        $query = "INSERT INTO nhanvien (maNV, tenNV, userName,password, maPhong, gioiTinh, ngaySinh) 
-                    VALUES (NULL,:tenNV,:userName,:password,:maPhong,:gioiTinh,:ngaySinh)";
+        $query = "INSERT INTO `nhanvien` (`maNV`, `tenNV`, `userName`, `password`, `maPhong`, `gioiTinh`, `ngaySinh`, `maCV`) 
+            VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(":tenNV", $tenNV);
-        $stmt->bindParam(":userName", $userName);
-        $stmt->bindParam(":password", $password);
-        $stmt->bindParam(":maPhong", $maPhong);
-        $stmt->bindParam(":gioiTinh", $gioiTinh);
-        $stmt->bindParam(":ngaySinh", $ngaySinh);
-        $stmt->execute();
+        $stmt->execute([$tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV]);
     }
 
     public function updateNV($id, $tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV)
     {
         $conn = $this->connectDB();
-        $query = "UPDATE nhanvien SET tenNV=:tenNV, userName=:userName, password=:password,
-                    maPhong=:maPhong, gioiTinh=:gioiTinh, ngaySinh=:ngaySinh, maCV=:maCV WHERE maNV=:id";
+        $query = "UPDATE `nhanvien` SET `tenNV` = ?, `userName` = ?, `password` = ?, `maPhong` = ?, 
+                `gioiTinh` = ?, `ngaySinh` = ?, `maCV` = ? WHERE `nhanvien`.`maNV` = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(":id", $id);
-        $stmt->bindParam(":tenNV", $tenNV);
-        $stmt->bindParam(":userName", $userName);
-        $stmt->bindParam(":password", $password);
-        $stmt->bindParam(":maPhong", $maPhong);
-        $stmt->bindParam(":gioiTinh", $gioiTinh);
-        $stmt->bindParam(":ngaySinh", $ngaySinh);
-        $stmt->execute();
+        $stmt->execute([$tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV, $id]);
     }
 
     public function getOne_NV($id)

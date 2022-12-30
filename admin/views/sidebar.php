@@ -27,7 +27,7 @@
             </a>
         </li>
         <li>
-            <a href="?act=nhanvien" class="nav-link <?php echo (isset($_GET['act']) && $_GET['act'] == 'nhanvien') ? 'active' : 'text-dark'; ?> ">
+            <a href="?act=nhanvien" class="nav-link <?php echo (isset($_GET['act']) && ($_GET['act'] == 'nhanvien' ||$_GET['act'] == 'addnvform' )) ? 'active' : 'text-dark'; ?> ">
                 <i class="fa-solid fa-user me-2"></i>
                 Nhân viên
             </a>

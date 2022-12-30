@@ -45,7 +45,7 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
         </div>
     </nav>
 
-    <div class="loginform mt-5">
+    <section class="loginform mt-5">
         <div class="row">
             <div class="col">
                 <img src="./images/loginForm.jpeg" class="img-fluid">
@@ -57,16 +57,18 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
                         <h3 class="mt-3 mb-5">Hello again!</h3>
                     </div>
 
-                    <div class="form-floating mb-3 col-11">
-                        <input type="text" class="form-control" id="userName" name="userName" placeholder="userName">
-                        <label for="userName">Tài khoản</label>
-                    </div>
+                        <div class="form-floating mb-3 col-11">
+                            <input type="text" class="form-control" id="userName" name="userName"
+                                   placeholder="userName">
+                            <label for="userName">Tài khoản</label>
+                        </div>
 
-                    <div class="form-floating mb-3 col-11">
-                        <input type="password" class="form-control" id="password" name="password"
-                               placeholder="password">
-                        <label for="password">Mật khẩu</label>
-                    </div>
+
+                        <div class="form-floating mb-3 col-11">
+                            <input type="password" class="form-control" id="password" name="password"
+                                   placeholder="password">
+                            <label for="password">Mật khẩu</label>
+                        </div>
 
 
                     <button class="btn btn-primary">Đăng nhập <i class="ps-3 fa-duotone fa-right-to-bracket"></i>
@@ -84,12 +86,13 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
 
                     <div class="col mt-3">
                         <div class="footer-login">
-                            <p class="text-muted">Chưa có tài khoản? <a href="#" class="text-decoration-none">Đăng ký</a> ngay</p>
+                            <p class="text-muted">Chưa có tài khoản? <a href="#" class="text-decoration-none">Đăng
+                                    ký</a> ngay</p>
                         </div>
                     </div>
             </div>
         </div>
-    </div>
+    </section>
 
 
     </body>

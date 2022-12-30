@@ -21,6 +21,7 @@ class DB
                     array(PDO::ATTR_PERSISTENT => true));
                 $this->mDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
+                echo "Lỗi database";
                 return false;
             }
         }

@@ -30,7 +30,6 @@
             <input type="submit" class="btn d-inline-block text-white" name="addpb" value="Thêm mới" style="background-color: var(--primaryColor);">
         </div>
     </form>
-
 </div>
 
 <div class="mt-4">

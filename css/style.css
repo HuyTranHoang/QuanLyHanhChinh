@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif
+    font-family: 'Poppins', sans-serif;
 }
 
 :root {
@@ -38,5 +38,13 @@
 
 .footer-login .text-muted {
     font-size: 12px;
+}
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-form-control-bg);
+    border-color: var(--primaryColor);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem var(--primaryColor);
 }
 

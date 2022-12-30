@@ -118,8 +118,52 @@ session_start();
                             break;
                         case 'nhanvien':
                             $nv = new NhanVien();
+                            if ((isset($_POST['addnv'])) && ($_POST['addnv'])) {
+                                $tenNV = $_POST['tenNV'];
+                                $userName = $_POST['userName'];
+                                $password = $_POST['password'];
+                                $maPhong = $_POST['maPhong'];
+                                $gioiTinh = $_POST['gioiTinh'];
+                                $ngaySinh = $_POST['ngaySinh'];
+                                $maCV = $_POST['maCV'];
+                                $nv->insertNV($tenNV, $userName, $password,$maPhong,$gioiTinh,$ngaySinh,$maCV);
+                            }
                             $kq = $nv->getAll_NV_PB_CV();
                             include 'views/nhanvien.php';
+                            break;
+                        case 'addnvform':
+                            include 'views/nhanvien_add.php';
+                            break;
+                        case 'updatenv':
+                            $nv = new NhanVien();
+                            if (isset($_GET['id'])) {
+                                $id = $_GET['id'];
+                                $kqOne = $nv->getOne_NV($id);
+                                $kq = $nv->getAll_NV();
+                                include 'views/nhanvien_update.php';
+                            }
+                            if (isset($_POST['maNV'])) {
+                                $maCV = $_POST['maCV'];
+                                $tenNV = $_POST['tenNV'];
+                                $userName = $_POST['userName'];
+                                $password = $_POST['password'];
+                                $maPhong = $_POST['maPhong'];
+                                $gioiTinh = $_POST['gioiTinh'];
+                                $ngaySinh = $_POST['ngaySinh'];
+                                $maNV = $_POST['maNV'];
+                                $nv->updateNV($maNV,$tenNV,$userName,$password,$maPhong,$gioiTinh,$ngaySinh,$maCV);
+                                $kq = $nv->getAll_NV_PB_CV();
+                                include 'views/nhanvien.php';
+                            }
+                            break;
+                        case 'delnv':
+                            $nv = new NhanVien();
+                            if (isset($_GET['id'])) {
+                                $id = $_GET['id'];
+                                $nv->delNV($id);
+                                $kq = $nv->getAll_NV_PB_CV();
+                                include 'views/nhanvien.php';
+                            }
                             break;
                         case 'ngayphep':
                             include 'views/ngayphep.php';
