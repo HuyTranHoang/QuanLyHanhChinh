@@ -27,7 +27,7 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.2/css/all.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style.min.css">
         <script defer src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <title>Login</title>
     </head>
