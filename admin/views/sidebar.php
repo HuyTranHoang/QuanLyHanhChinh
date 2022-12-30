@@ -1,7 +1,7 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 bg-light ms-0"
      style="height: 100vh">
     <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <i class="fa-sharp fa-solid fa-code me-3"></i>
+        <i class="fa-solid fa-code me-3"></i>
         <span class="fs-4">Quản Lý</span>
     </a>
     <hr>
@@ -22,7 +22,7 @@
         </li>
         <li>
             <a href="?act=chucvu" class="nav-link <?php echo (isset($_GET['act']) && $_GET['act'] == 'chucvu') ? 'active' : 'text-dark'; ?> ">
-                <i class="fa-sharp fa-solid fa-badge-check me-2"></i>
+                <i class="fa-solid fa-badge-check me-2"></i>
                 Chức vụ
             </a>
         </li>

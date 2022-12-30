@@ -2,12 +2,6 @@
 
 class DB
 {
-    private $mDB = null; // Chứa object connect đến DB
-
-    protected function __construct()
-    {
-    }
-
     protected function connectDB()
     {
         $host = 'localhost';
@@ -15,16 +9,15 @@ class DB
         $password = '';
         $dbName = 'quanlyhanhchinh';
 
-        if (!isset($this->mDB)) {
-            try {
-                $this->mDB = new PDO("mysql:host=$host;dbname=$dbName", $username, $password,
-                    array(PDO::ATTR_PERSISTENT => true));
-                $this->mDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            } catch (PDOException $e) {
-                echo "Lỗi database";
-                return false;
-            }
+        try {
+            $PDO = new PDO("mysql:host=$host;dbname=$dbName", $username, $password,
+                array(PDO::ATTR_PERSISTENT => true));
+            $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo "Lỗi database";
+            return false;
         }
-        return $this->mDB;
+
+        return $PDO;
     }
 }
