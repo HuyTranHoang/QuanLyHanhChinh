@@ -166,7 +166,29 @@ session_start();
                             }
                             break;
                         case 'ngayphep':
+                            $np = new NgayPhep();
+                            if ((isset($_POST['addnp'])) && ($_POST['addnp'])) {
+                                $maNV = $_POST['maNV'];
+                                $soNgayHienTai = 0;
+                                $tongSoNgay = $_POST['tongSoNgay'];
+                                $nam = $_POST['nam'];
+                                $ghiChu = "";
+                                $np->insertNP($maNV, $soNgayHienTai, $tongSoNgay, $nam, $ghiChu);
+                            }
+                            $kq = $np->getAll_NP_NV();
                             include 'views/ngayphep.php';
+                            break;
+                        case 'addnpform':
+                            include 'views/ngayphep_add.php';
+                            break;
+                        case 'delnp':
+                            $np = new NgayPhep();
+                            if (isset($_GET['id'])) {
+                                $id = $_GET['id'];
+                                $np->delNP($id);
+                                $kq = $np->getAll_NP_NV();
+                                include 'views/ngayphep.php';
+                            }
                             break;
                         case 'phieunghiphep':
                             include 'views/phieunghiphep.php';

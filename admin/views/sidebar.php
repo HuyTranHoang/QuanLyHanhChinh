@@ -33,7 +33,7 @@
             </a>
         </li>
         <li>
-            <a href="?act=ngayphep" class="nav-link <?php echo (isset($_GET['act']) && $_GET['act'] == 'ngayphep') ? 'active' : 'text-dark'; ?> ">
+            <a href="?act=ngayphep" class="nav-link <?php echo (isset($_GET['act']) && ($_GET['act'] == 'ngayphep' || $_GET['act'] == 'addnpform')) ? 'active' : 'text-dark'; ?> ">
                 <i class="fa-duotone fa-calendar-days me-2"></i>
                 Ngày phép
             </a>
