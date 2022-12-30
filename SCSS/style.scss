@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+//custom variables
+
+$sakura: #FFB6C1;
+
+$component-active-bg: $sakura;
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+
+$custom-theme-colors: (
+        "sakura": #FFB6C1
+);
+
+$theme-colors: map-merge($custom-theme-colors,$theme-colors);
+$table-variants: map-merge($custom-theme-colors,$table-variants);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.loginform {
+  position: relative;
+  width: 720px;
+  height: 440px;
+  margin: 20px auto;
+  border: 1px solid #dddd;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+}
+
+.loginform .btn-sakura {
+  border: 0;
+  font-size: 14px;
+}
+
+.footer-login .text-muted {
+  font-size: 12px;
+}

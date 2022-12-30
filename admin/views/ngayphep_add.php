@@ -61,8 +61,8 @@
 
 
         <div class="mb-3 col-6 offset-2">
-            <input type="submit" class="btn d-inline-block text-white" name="addnp" value="Thêm mới"
-                   style="background-color: var(--primaryColor);">
+            <input type="submit" class="btn d-inline-block text-white btn-sakura"
+                   name="addnp" value="Thêm mới">
         </div>
     </form>
 

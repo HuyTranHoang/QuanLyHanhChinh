@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col"><h5>Danh sách ngày nghỉ</h5></div>
         <div class="col">
-            <a href="index.php?act=addnpform"><h5 class="float-end"><i class="fa-duotone fa-notes"></i></i> Thêm mới</h5></a>
+            <a href="index.php?act=addnpform"><h5 class="float-end"><i class="fa-duotone fa-notes"></i> Thêm mới</h5></a>
         </div>
     </div>
 

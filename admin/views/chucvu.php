@@ -11,7 +11,7 @@
         </div>
 
         <div class="mb-3 col-6">
-            <input type="submit" class="btn text-light d-inline-block" name="addcv" value="Thêm mới" style="background-color: var(--primaryColor);">
+            <input type="submit" class="btn text-light d-inline-block btn-sakura" name="addcv" value="Thêm mới">
         </div>
     </form>
 

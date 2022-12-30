@@ -97,7 +97,7 @@
         <input type="hidden" name="maNV" value="<?= $kqOne['maNV'] ?>">
 
         <div class="mb-3 col-6 offset-2">
-            <button type="submit" class="btn d-inline-block text-white" style="background-color: var(--primaryColor);">
+            <button type="submit" class="btn d-inline-block text-light btn-sakura">
                 Cập nhật
             </button>
         </div>

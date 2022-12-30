@@ -29,7 +29,7 @@
         <input type="hidden" name="maPhong" value="<?= $kqOne['maPhong'] ?>">
 
         <div class="mb-3 col-6">
-            <button type="submit" class="btn text-light d-inline-block" style="background-color: var(--primaryColor);">Cập nhật</button>
+            <button type="submit" class="btn text-light d-inline-block btn-sakura">Cập nhật</button>
         </div>
     </form>
 

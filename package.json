@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "bootstrap": "^5.3.0-alpha1"
-  }
+  },
+  "name": "quanlyhanhchinh",
+  "description": "Sử dụng PHP, MySQL tạo website quản lý quy trình đăng ký và duyệt nghỉ phép",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:scss": "sass SCSS/style.scss css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sosovi/QuanLyHanhChinh.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sosovi/QuanLyHanhChinh/issues"
+  },
+  "homepage": "https://github.com/Sosovi/QuanLyHanhChinh#readme"
 }

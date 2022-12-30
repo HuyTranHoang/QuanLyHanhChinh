@@ -26,7 +26,6 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.2/css/all.css">
         <link rel="stylesheet" href="css/style.css">
         <script defer src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -34,7 +33,7 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
     </head>
     <body>
 
-    <nav class="navbar navbar-dark container-fluid" style="background-color: #FFB6C1">
+    <nav class="navbar navbar-dark container-fluid bg-sakura">
         <div class="container position-relative">
             <a class="navbar-brand" href="#">
                 <i class="fa-duotone fa-rocket-launch"></i>
@@ -52,7 +51,7 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
             </div>
             <div class="col">
                 <form method="POST" action="">
-                    <div class="my-3 row text-center text-pink">
+                    <div class="my-3 row text-center text-sakura">
                         <i class="fa-duotone fa-flower fs-3"></i>
                         <h3 class="mt-3 mb-5">Hello again!</h3>
                     </div>
@@ -71,7 +70,7 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
                         </div>
 
 
-                    <button class="btn btn-primary">Đăng nhập <i class="ps-3 fa-duotone fa-right-to-bracket"></i>
+                    <button class="btn btn-sakura text-white">Đăng nhập <i class="ps-3 fa-duotone fa-right-to-bracket"></i>
                     </button>
 
                     <div class="col">
