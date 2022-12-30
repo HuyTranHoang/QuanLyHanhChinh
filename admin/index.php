@@ -14,7 +14,9 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,300&display=swap"
           rel="stylesheet">
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script defer src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="../js/main.js"></script>
     <title>Quản lý hành chính</title>
 </head>
 <body>
@@ -23,7 +25,7 @@ session_start();
         <?php include 'views/header.php'; ?>
     </div>
     <div class="row">
-        <div class="col-2 fixed-top" style="margin-left: -12px">
+        <div class="col-2 fixed-top ps-0">
             <?php include_once 'views/sidebar.php' ?>
         </div>
         <div class="col-8 offset-2">

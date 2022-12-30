@@ -35,11 +35,10 @@ $table-variants: map-merge($custom-theme-colors,$table-variants);
   border-radius: 18px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
-}
-
-.loginform .btn-sakura {
-  border: 0;
-  font-size: 14px;
+  .btn-sakura {
+    border: 0;
+    font-size: 14px;
+  }
 }
 
 .footer-login .text-muted {

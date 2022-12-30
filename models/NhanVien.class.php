@@ -51,6 +51,16 @@ class NhanVien extends DB
         return $stmt->fetchAll();
     }
 
+    public function getAll_NV_from_PB($id)
+    {
+        $conn = $this->connectDB();
+        $query = "SELECT * FROM nhanvien join phongban p on p.maPhong = nhanvien.maPhong where nhanvien.maPhong = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->execute([$id]);
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll();
+    }
+
     public function getAll_NV_PB_CV()
     {
         $conn = $this->connectDB();
