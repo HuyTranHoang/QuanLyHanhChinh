@@ -57,18 +57,18 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
                     </div>
 
                         <div class="form-floating mb-3 col-11">
-                            <input type="text" class="form-control" id="userName" name="userName"
+                            <input type="text" class="form-control pe-6" id="userName" name="userName"
                                    placeholder="userName">
                             <label for="userName">Tài khoản</label>
-                            <span class="form-icon"><i class="fa-regular fa-at"></i></span>
+                            <span><i class="fa-regular fa-at"></i></span>
                         </div>
 
 
                         <div class="form-floating mb-3 col-11">
-                            <input type="password" class="form-control" id="password" name="password"
-                                   placeholder="password">
+                            <input type="password" class="form-control pe-6" id="password" name="password"
+                                   placeholder="password" value="<?= "" ?>">
                             <label for="password">Mật khẩu</label>
-                            <span class="form-icon"><i class="fa-regular fa-lock"></i></span>
+                            <span><i class="fa-regular fa-lock"></i></span>
                         </div>
 
 

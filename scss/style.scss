@@ -8,13 +8,19 @@ $component-active-bg: $sakura;
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 
-
 $custom-theme-colors: (
         "sakura": #FFB6C1
 );
 
+$custom-spacers: (
+        6: $spacer * 4,
+);
+
+
 $theme-colors: map-merge($custom-theme-colors,$theme-colors);
 $table-variants: map-merge($custom-theme-colors,$table-variants);
+$spacers: map-merge($custom-spacers,$spacers);
+
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
@@ -45,17 +51,23 @@ $table-variants: map-merge($custom-theme-colors,$table-variants);
   font-size: 12px;
 }
 
-.form-icon{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 85%;
-  user-select: none;
-  color: #999;
-  pointer-events: none;
-  transition: 0.25s ease;
-}
+.form-floating {
+  span{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 85%;
+    user-select: none;
+    color: #999;
+    pointer-events: none;
+    transition: 0.25s ease;
+  }
 
-.form-control:focus ~ .form-icon {
-  color: $sakura;
+  .form-control {
+    &:not(:placeholder-shown)~span,
+    &:focus ~ span {
+      top: 62%;
+      color: $sakura;
+    }
+  }
 }
