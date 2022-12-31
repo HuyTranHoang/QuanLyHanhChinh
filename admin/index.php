@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../includes/autoloader.inc.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,7 +32,6 @@ session_start();
         <div class="col-8 offset-2">
             <?php
             if (isset($_SESSION['role'])) {
-                include '../includes/autoloader.inc.php';
                 if (isset($_GET['act'])) {
                     switch ($_GET['act']) {
                         case 'phongban':
@@ -126,7 +126,7 @@ session_start();
                                 $gioiTinh = $_POST['gioiTinh'];
                                 $ngaySinh = $_POST['ngaySinh'];
                                 $maCV = $_POST['maCV'];
-                                $nv->insertNV($tenNV, $userName, $password,$maPhong,$gioiTinh,$ngaySinh,$maCV);
+                                $nv->insertNV($tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV);
                             }
                             $kq = $nv->getAll_NV_PB_CV();
                             include 'views/nhanvien.php';
@@ -151,7 +151,8 @@ session_start();
                                 $gioiTinh = $_POST['gioiTinh'];
                                 $ngaySinh = $_POST['ngaySinh'];
                                 $maNV = $_POST['maNV'];
-                                $nv->updateNV($maNV,$tenNV,$userName,$password,$maPhong,$gioiTinh,$ngaySinh,$maCV);
+                                $nv->updateNV($maNV, $tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh,
+                                    $maCV);
                                 $kq = $nv->getAll_NV_PB_CV();
                                 include 'views/nhanvien.php';
                             }
@@ -180,6 +181,26 @@ session_start();
                             break;
                         case 'addnpform':
                             include 'views/ngayphep_add.php';
+                            break;
+                        case 'updatenp':
+                            $np = new NgayPhep();
+                            if (isset($_GET['id'])) {
+                                $id = $_GET['id'];
+                                $kqOne = $np->getOne_NP_NV($id);
+                                $kq = $np->getAll_NP_NV();
+                                include 'views/ngayphep_update.php';
+                            }
+                            if (isset($_POST['maPhep'])) {
+                                $maNV = $_POST['maNV'];
+                                $soNgayHienTai = $_POST['soNgayHienTai'];
+                                $tongSoNgay = $_POST['tongSoNgay'];
+                                $nam = $_POST['nam'];
+                                $ghiChu = $_POST['ghiChu'];
+                                $maPhep = $_POST['maPhep'];
+                                $np->updateNP($maPhep, $maNV, $soNgayHienTai, $tongSoNgay, $nam, $ghiChu);
+                                $kq = $np->getAll_NP_NV();
+                                include 'views/ngayphep.php';
+                            }
                             break;
                         case 'delnp':
                             $np = new NgayPhep();

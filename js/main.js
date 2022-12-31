@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('#maPhong').change(function(){
         let inputValue = $(this).val();
-        $.post('views/submit.php', { maPhong: inputValue }, function(data){
+        $.post('views/api.php', { maPhong: inputValue }, function(data){
             $('#maNV').html(data);
         });
     });

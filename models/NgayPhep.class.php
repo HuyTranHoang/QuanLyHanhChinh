@@ -15,6 +15,16 @@ class NgayPhep extends DB
         $stmt->execute([$maNV, $soNgayHienTai, $tongSoNgay, $nam,$ghiChu]);
     }
 
+    public function updateNP($maPhep,$maNV,$soNgayHienTai,$tongSoNgay,$nam,$ghiChu)
+    {
+        $conn = $this->connectDB();
+        $query = "UPDATE `tongngaynghi` SET `maNV` = ?, `soNgayHienTai` = ?, `tongSoNgay` = ?, `nam` = ?, 
+                `ghiChu` = ? WHERE `tongngaynghi`.`maPhep` = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->execute([$maNV,$soNgayHienTai,$tongSoNgay,$nam,$ghiChu,$maPhep]);
+    }
+
+
     public function delNP($id)
     {
         $conn = $this->connectDB();
@@ -22,11 +32,21 @@ class NgayPhep extends DB
         $conn->exec($query);
     }
 
+    public function getOne_NP_NV($id)
+    {
+        $conn = $this->connectDB();
+        $query = "SELECT t.maPhep, n.maNV ,n.tenNV, n.maPhong, t.soNgayHienTai, t.tongSoNgay, t.nam, t.ghiChu FROM tongngaynghi t JOIN nhanvien n on n.maNV = T.maNV";
+        $query .= ' where t.maPhep ='.$id;
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        return $stmt->fetch();
+    }
 
     public function getAll_NP_NV()
     {
         $conn = $this->connectDB();
-        $query = "SELECT n.maNV ,n.tenNV, t.soNgayHienTai, t.tongSoNgay FROM tongngaynghi t JOIN nhanvien n on n.maNV = T.maNV";
+        $query = "SELECT t.maPhep, n.maNV ,n.tenNV, t.soNgayHienTai, t.tongSoNgay, t.nam FROM tongngaynghi t JOIN nhanvien n on n.maNV = T.maNV";
         $stmt = $conn->prepare($query);
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
