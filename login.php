@@ -60,6 +60,7 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
                             <input type="text" class="form-control" id="userName" name="userName"
                                    placeholder="userName">
                             <label for="userName">Tài khoản</label>
+                            <span class="form-icon"><i class="fa-regular fa-at"></i></span>
                         </div>
 
 
@@ -67,6 +68,7 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
                             <input type="password" class="form-control" id="password" name="password"
                                    placeholder="password">
                             <label for="password">Mật khẩu</label>
+                            <span class="form-icon"><i class="fa-regular fa-lock"></i></span>
                         </div>
 
 

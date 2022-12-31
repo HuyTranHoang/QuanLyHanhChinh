@@ -44,3 +44,18 @@ $table-variants: map-merge($custom-theme-colors,$table-variants);
 .footer-login .text-muted {
   font-size: 12px;
 }
+
+.form-icon{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 85%;
+  user-select: none;
+  color: #999;
+  pointer-events: none;
+  transition: 0.25s ease;
+}
+
+.form-control:focus ~ .form-icon {
+  color: $sakura;
+}
