@@ -13,6 +13,7 @@ class NgayPhep extends DB
             VALUES (NULL, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($query);
         $stmt->execute([$maNV, $soNgayHienTai, $tongSoNgay, $nam,$ghiChu]);
+        $conn = null;
     }
 
     public function updateNP($maPhep,$maNV,$soNgayHienTai,$tongSoNgay,$nam,$ghiChu)
@@ -22,6 +23,7 @@ class NgayPhep extends DB
                 `ghiChu` = ? WHERE `tongngaynghi`.`maPhep` = ?";
         $stmt = $conn->prepare($query);
         $stmt->execute([$maNV,$soNgayHienTai,$tongSoNgay,$nam,$ghiChu,$maPhep]);
+        $conn = null;
     }
 
 
@@ -30,6 +32,7 @@ class NgayPhep extends DB
         $conn = $this->connectDB();
         $query = "DELETE FROM tongngaynghi WHERE maPhep=" . $id;
         $conn->exec($query);
+        $conn = null;
     }
 
     public function getOne_NP_NV($id)
@@ -40,6 +43,7 @@ class NgayPhep extends DB
         $stmt = $conn->prepare($query);
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $conn = null;
         return $stmt->fetch();
     }
 
@@ -50,6 +54,8 @@ class NgayPhep extends DB
         $stmt = $conn->prepare($query);
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $conn = null;
         return $stmt->fetchAll();
+
     }
 }

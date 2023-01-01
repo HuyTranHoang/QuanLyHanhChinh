@@ -9,6 +9,7 @@ include '../includes/autoloader.inc.php';
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/fa/all.css">
     <link rel="stylesheet" href="../css/style.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -15,6 +15,7 @@ class User extends DB
         $stmt->bindParam(":password", $pass);
         $stmt->execute();
         $kq = $stmt->fetch(PDO::FETCH_ASSOC);
+        $conn = null;
         return (empty($kq)) ? null : $kq['maCV'];
     }
 

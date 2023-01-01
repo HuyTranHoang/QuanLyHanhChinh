@@ -2,7 +2,7 @@
 spl_autoload_register('myAutoLoader');
 
 function myAutoLoader($className) {
-    $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    $url = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
     if (str_contains($url, 'admin')) {
         $path = "../models/";
@@ -17,4 +17,5 @@ function myAutoLoader($className) {
         return false;
     }
     include_once $fullpath;
+    return true;
 }

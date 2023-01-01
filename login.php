@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'includes/autoloader.inc.php';
+include 'config/config.php';
 
 if (isset($_POST['userName']) && isset($_POST['password'])) {
     $user = new user();
@@ -25,6 +26,7 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="icon" href="./images/logo.png">
         <link rel="stylesheet" href="./css/fa/all.css">
         <link rel="stylesheet" href="css/style.min.css">
         <title>Login</title>

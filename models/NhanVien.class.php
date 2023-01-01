@@ -13,6 +13,8 @@ class NhanVien extends DB
             VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($query);
         $stmt->execute([$tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV]);
+        $conn = null;
+
     }
 
     public function updateNV($id, $tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV)
@@ -22,6 +24,8 @@ class NhanVien extends DB
                 `gioiTinh` = ?, `ngaySinh` = ?, `maCV` = ? WHERE `nhanvien`.`maNV` = ?";
         $stmt = $conn->prepare($query);
         $stmt->execute([$tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV, $id]);
+        $conn = null;
+
     }
 
     public function getOne_NV($id)
@@ -31,6 +35,7 @@ class NhanVien extends DB
         $stmt = $conn->prepare($query);
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $conn = null;
         return $stmt->fetch();
     }
 
@@ -39,6 +44,7 @@ class NhanVien extends DB
         $conn = $this->connectDB();
         $query = "DELETE FROM nhanvien WHERE maNV=" . $id;
         $conn->exec($query);
+        $conn = null;
     }
 
     public function getAll_NV()
@@ -48,6 +54,7 @@ class NhanVien extends DB
         $stmt = $conn->prepare($query);
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $conn = null;
         return $stmt->fetchAll();
     }
 
@@ -58,6 +65,7 @@ class NhanVien extends DB
         $stmt = $conn->prepare($query);
         $stmt->execute([$id]);
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $conn = null;
         return $stmt->fetchAll();
     }
 
@@ -68,6 +76,7 @@ class NhanVien extends DB
         $stmt = $conn->prepare($query);
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $conn = null;
         return $stmt->fetchAll();
     }
 }

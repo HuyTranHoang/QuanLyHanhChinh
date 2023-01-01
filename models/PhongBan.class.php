@@ -15,6 +15,8 @@ class PhongBan extends DB
         $stmt->bindParam(":vietTat", $vietTat);
         $stmt->bindParam(":ghiChu", $ghiChu);
         $stmt->execute();
+        $conn = null;
+
     }
 
     public function updatePB($id, $tenPhong, $vietTat, $ghiChu)
@@ -27,6 +29,7 @@ class PhongBan extends DB
         $stmt->bindParam(":vietTat", $vietTat);
         $stmt->bindParam(":ghiChu", $ghiChu);
         $stmt->execute();
+        $conn = null;
     }
 
     public function getOne_PB($id)
@@ -36,6 +39,7 @@ class PhongBan extends DB
         $stmt = $conn -> prepare($query);
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $conn = null;
         return $stmt->fetch();
     }
 
@@ -44,6 +48,8 @@ class PhongBan extends DB
         $conn = $this->connectDB();
         $query = "DELETE FROM phongban WHERE maPhong=" . $id;
         $conn -> exec($query);
+        $conn = null;
+
     }
 
     public function getAll_PB()
@@ -53,6 +59,7 @@ class PhongBan extends DB
         $stmt = $conn -> prepare($query);
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $conn = null;
         return $stmt->fetchAll();
     }
 }
