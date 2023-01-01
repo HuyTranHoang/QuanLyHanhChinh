@@ -26,7 +26,7 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.1/css/all.css">
+        <link rel="stylesheet" href="./css/fa/all.css">
         <link rel="stylesheet" href="css/style.min.css">
         <script defer src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <title>Login</title>
@@ -56,23 +56,24 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
                         <h3 class="mt-3 mb-5">Hello again!</h3>
                     </div>
 
-                        <div class="form-floating mb-3 col-11">
-                            <input type="text" class="form-control pe-6" id="userName" name="userName"
-                                   placeholder="userName">
-                            <label for="userName">Tài khoản</label>
-                            <span><i class="fa-regular fa-at"></i></span>
-                        </div>
+                    <div class="form-floating mb-3 col-11">
+                        <input type="text" class="form-control pe-6" id="userName" name="userName"
+                               placeholder="userName">
+                        <label for="userName">Tài khoản</label>
+                        <span><i class="fa-regular fa-at"></i></span>
+                    </div>
 
 
-                        <div class="form-floating mb-3 col-11">
-                            <input type="password" class="form-control pe-6" id="password" name="password"
-                                   placeholder="password" value="<?= "" ?>">
-                            <label for="password">Mật khẩu</label>
-                            <span><i class="fa-regular fa-lock"></i></span>
-                        </div>
+                    <div class="form-floating mb-3 col-11">
+                        <input type="password" class="form-control pe-6" id="password" name="password"
+                               placeholder="password" autocomplete="on">
+                        <label for="password">Mật khẩu</label>
+                        <span><i class="fa-regular fa-lock"></i></span>
+                    </div>
 
 
-                    <button class="btn btn-sakura text-white">Đăng nhập <i class="ps-3 fa-duotone fa-right-to-bracket"></i>
+                    <button class="btn btn-sakura text-white">Đăng nhập <i
+                                class="ps-3 fa-duotone fa-right-to-bracket"></i>
                     </button>
 
                     <div class="col">
