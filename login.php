@@ -1,7 +1,6 @@
 <?php
 session_start();
-include 'models/DB.class.php';
-include 'models/User.class.php';
+include 'includes/autoloader.inc.php';
 
 if (isset($_POST['userName']) && isset($_POST['password'])) {
     $user = new user();
@@ -28,7 +27,6 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="./css/fa/all.css">
         <link rel="stylesheet" href="css/style.min.css">
-        <script defer src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <title>Login</title>
     </head>
     <body>

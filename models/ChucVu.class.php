@@ -7,7 +7,7 @@ class ChucVu extends DB
     {
     }
 
-    public function insertPB($chucVu)
+    public function insertCV($chucVu)
     {
         $conn = $this->connectDB();
         $query = "INSERT INTO chucvu (maCV, chucVu) VALUES (NULL,:chucVu)";
