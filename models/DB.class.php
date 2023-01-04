@@ -2,19 +2,15 @@
 
 class DB
 {
-    protected $host;
-    protected $username;
-    protected $password;
-    protected $dbName;
 
     protected function connectDB()
     {
-        $this->host = host;
-        $this->username =  username;
-        $this->password = password;
-        $this->dbName = dbName;
+        $host = 'localhost';
+        $username = 'root';
+        $password = '';
+        $dbName = 'quanlyhanhchinh';
         try {
-            $PDO = new PDO("mysql:host=$this->host;dbname=$this->dbName", $this->username, $this->password,
+            $PDO = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8",$username, $password,
                 array(PDO::ATTR_PERSISTENT => true));
             $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
@@ -24,4 +20,5 @@ class DB
 
         return $PDO;
     }
+
 }
