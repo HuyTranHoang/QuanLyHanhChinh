@@ -214,6 +214,9 @@ include '../includes/autoloader.inc.php';
                         case 'phieunghiphep':
                             include 'views/phieunghiphep.php';
                             break;
+                        case 'taophieu':
+                            include 'views/taophieu.php';
+                            break;
                         case 'thoat':
                                 unset($_SESSION['role']);
                             header('location:../login.php');

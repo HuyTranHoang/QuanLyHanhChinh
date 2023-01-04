@@ -45,6 +45,12 @@
             </a>
         </li>
         <li>
+            <a href="?act=taophieu" class="nav-link <?php echo (isset($_GET['act']) && $_GET['act'] == 'taophieu') ? 'active' : 'text-dark'; ?> ">
+                <i class="fa-duotone fa-note"></i>
+                Tạo phếu
+            </a>
+        </li>
+        <li>
             <a href="?act=thoat" class="nav-link text-dark ">
                 <i class="fa-solid fa-arrow-right-from-bracket me-2"></i>
                 Thoát
