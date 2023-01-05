@@ -23,11 +23,11 @@ include '../includes/autoloader.inc.php';
 <body>
 <div class="container-fluid">
     <div class="row">
-        <?php include 'views/Layout/_Header.php'; ?>
+        <?php include 'views/_Layout/_Header.php'; ?>
     </div>
     <div class="row">
         <div class="col-2 fixed-top ps-0">
-            <?php include_once 'views/Layout/_Sidebar.php' ?>
+            <?php include_once 'views/_Layout/_Sidebar.php' ?>
         </div>
         <div class="col-8 offset-2">
             <?php
@@ -261,7 +261,7 @@ include '../includes/autoloader.inc.php';
         </div>
     </div>
     <div class="row">
-        <?php include 'views/Layout/_Footer.php'; ?>
+        <?php include 'views/_Layout/_Footer.php'; ?>
     </div>
 </div>
 </body>
