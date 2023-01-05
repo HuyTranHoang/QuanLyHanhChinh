@@ -2,10 +2,12 @@
 
 class PhongBanController extends PhongBan
 {
+
     public static function index() {
         $kq = self::getAll_PB();
         include 'views/PhongBan/index.php';
     }
+
     public static function create() {
         if ((isset($_POST['addpb'])) && ($_POST['addpb'])) {
             $tenPhong = $_POST['tenPhong'];

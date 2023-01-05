@@ -3,54 +3,51 @@
 class ChucVuController extends ChucVu
 {
 
-    public function myCallback($item) {
-        $item();
-    }
-    public function index()
+    public static function index()
     {
-        $kq = $this->getAll_CV();
+        $kq = self::getAll_CV();
         include 'views/ChucVu/index.php';
     }
 
-    public function create()
+    public static function create()
     {
         if ((isset($_POST['addcv'])) && ($_POST['addcv'])) {
             $chucVu = $_POST['chucVu'];
-            $this->insertCV($chucVu);
+            self::insertCV($chucVu);
         }
-        $kq = $this->getAll_cv();
+        $kq = self::getAll_cv();
         include 'views/ChucVu/index.php';
     }
 
-    public function update()
+    public static function update()
     {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
-            $kqOne = $this->getOne_CV($id);
-            $kq = $this->getAll_CV();
+            $kqOne = self::getOne_CV($id);
+            $kq = self::getAll_CV();
             include 'views/ChucVu/index.php';
         }
         if (isset($_POST['maCV'])) {
             $maCV = $_POST['maCV'];
             $chucVu = $_POST['chucVu'];
-            $this->updateCV($maCV, $chucVu);
-            $kq = $this->getAll_CV();
+            self::updateCV($maCV, $chucVu);
+            $kq = self::getAll_CV();
             include 'views/ChucVu/index.php';
         }
     }
 
-    public function delete()
+    public static function delete()
     {
         if (isset($_GET['confirm'])) {
             $id = $_GET['id'];
-            $kqOne = $this->getOne_CV($id);
-            $kq = $this->getAll_CV();
+            $kqOne = self::getOne_CV($id);
+            $kq = self::getAll_CV();
             include 'views/ChucVu/index.php';
         }
         if (isset($_GET['id']) && !isset($_GET['confirm'])) {
             $id = $_GET['id'];
-            $this->delCV($id);
-            $kq = $this->getAll_cv();
+            self::delCV($id);
+            $kq = self::getAll_cv();
             include 'views/ChucVu/index.php';
         }
     }

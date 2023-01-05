@@ -16,7 +16,6 @@ class PhongBan extends DB
         $stmt->bindParam(":ghiChu", $ghiChu);
         $stmt->execute();
         $conn = null;
-
     }
 
     public static function updatePB($id, $tenPhong, $vietTat, $ghiChu)

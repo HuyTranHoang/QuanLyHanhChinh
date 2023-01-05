@@ -1,7 +1,7 @@
 <div class="text-center mt-3">
     <h3>QUẢN LÝ PHÒNG</h3>
     <hr>
-    <form method="POST" action="index.php?act=addpb" class="">
+    <form method="POST" action="index.php?act=phongban&q=create" class="">
         <div class="mb-3 mt-3 row justify-content-center">
             <label for="tenPhong" class="col-2 col-form-label offset-2">Tên phòng</label>
             <div class="col">

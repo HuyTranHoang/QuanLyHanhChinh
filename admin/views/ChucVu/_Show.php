@@ -13,8 +13,8 @@
             foreach ($kq as $index => $item) {
                 echo '<tr>';
                 echo '<td>' . $index + 1 . '</td>';
-                echo '<td><a href="index.php?act=updatecv&id=' . $item['maCV'] . '" class="text-decoration-none" >' . $item['chucVu'] . '</a></td>';
-                echo '<td><a href="index.php?act=delcv&confirm&id=' . $item['maCV'] . '"><i class="fa-duotone fa-x"></a></i></td>';
+                echo '<td><a href="index.php?act=chucvu&q=update&id=' . $item['maCV'] . '" class="text-decoration-none" >' . $item['chucVu'] . '</a></td>';
+                echo '<td><a href="index.php?act=chucvu&q=delete&confirm&id=' . $item['maCV'] . '"><i class="fa-duotone fa-x"></a></i></td>';
                 echo '</tr>';
             }
         }

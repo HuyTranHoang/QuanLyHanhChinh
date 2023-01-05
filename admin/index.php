@@ -35,29 +35,13 @@ include '../includes/autoloader.inc.php';
                 if (isset($_GET['act'])) {
                     switch ($_GET['act']) {
                         case 'phongban':
-                            $test = 'index';
-                            PhongBanController::$test();
-                            break;
-                        case 'addpb':
-                            PhongBanController::create();
-                            break;
-                        case 'updatepb':
-                            PhongBanController::update();
-                            break;
-                        case 'delpb':
-                            PhongBanController::delete();
+                            //q nhận 4 giá trị index, create, update, delete
+                            $q = $_GET['q'];
+                            PhongBanController::$q();
                             break;
                         case 'chucvu':
-                            $cvCtr->index();
-                            break;
-                        case 'addcv':
-                            $cvCtr->create();
-                            break;
-                        case 'updatecv':
-                            $cvCtr->update();
-                            break;
-                        case 'delcv':
-                            $cvCtr->delete();
+                            $q = $_GET['q'];
+                            ChucVuController::$q();
                             break;
                         case 'nhanvien':
                             $nv = new NhanVien();

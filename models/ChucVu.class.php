@@ -7,9 +7,9 @@ class ChucVu extends DB
     {
     }
 
-    public function insertCV($chucVu)
+    public static function insertCV($chucVu)
     {
-        $conn = $this->connectDB();
+        $conn = self::connectDB();
         $query = "INSERT INTO chucvu (maCV, chucVu) VALUES (NULL,:chucVu)";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(":chucVu", $chucVu);
@@ -17,9 +17,9 @@ class ChucVu extends DB
         $conn = null;
     }
 
-    public function updateCV($id, $chucVu)
+    public static function updateCV($id, $chucVu)
     {
-        $conn = $this->connectDB();
+        $conn = self::connectDB();
         $query = "UPDATE chucvu SET chucVu=:chucVu WHERE maCV=:id";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(":id", $id);
@@ -28,9 +28,9 @@ class ChucVu extends DB
         $conn = null;
     }
 
-    public function getOne_CV($id)
+    public static function getOne_CV($id)
     {
-        $conn = $this->connectDB();
+        $conn = self::connectDB();
         $query = "SELECT * FROM chucvu where maCV =" . $id;
         $stmt = $conn->prepare($query);
         $stmt->execute();
@@ -39,17 +39,17 @@ class ChucVu extends DB
         return $stmt->fetch();
     }
 
-    public function delCV($id)
+    public static function delCV($id)
     {
-        $conn = $this->connectDB();
+        $conn = self::connectDB();
         $query = "DELETE FROM chucvu WHERE maCV=" . $id;
         $conn->exec($query);
         $conn = null;
     }
 
-    public function getAll_CV()
+    public static function getAll_CV()
     {
-        $conn = $this->connectDB();
+        $conn = self::connectDB();
         $query = "SELECT * FROM chucvu";
         $stmt = $conn->prepare($query);
         $stmt->execute();

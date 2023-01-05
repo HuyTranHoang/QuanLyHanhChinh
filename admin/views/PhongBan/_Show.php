@@ -13,9 +13,9 @@
             foreach ($kq as $index => $item) {
                 echo '<tr>';
                 echo '<td>' . $index + 1 . '</td>';
-                echo '<td><a href="index.php?act=updatepb&id=' . $item['maPhong'] . '" class="text-decoration-none" >' . $item['tenPhong'] . '</a></td>';
+                echo '<td><a href="index.php?act=phongban&q=update&id=' . $item['maPhong'] . '" class="text-decoration-none" >' . $item['tenPhong'] . '</a></td>';
                 echo '<td>' . $item['vietTat'] . '</td>';
-                echo '<td><a href="index.php?act=delpb&confirm&id=' . $item['maPhong'] . '"><i class="fa-duotone fa-x"></a></i></td>';
+                echo '<td><a href="index.php?act=phongban&q=delete&confirm&id=' . $item['maPhong'] . '"><i class="fa-duotone fa-x"></a></i></td>';
                 echo '</tr>';
             }
         }

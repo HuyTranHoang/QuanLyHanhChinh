@@ -1,5 +1,5 @@
 <?php
-if ($_GET['act'] == 'updatecv' && isset($_GET['id']) || $_GET['act'] == 'delcv' && isset($_GET['confirm'])) {
+if ($_GET['q'] == 'update' && isset($_GET['id']) || $_GET['q'] == 'delete' && isset($_GET['confirm'])) {
     include '_Form_Update_Delete.php';
 } else {
     include '_Form_Add.php';

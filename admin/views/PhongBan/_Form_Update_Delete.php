@@ -1,7 +1,7 @@
 <div class="text-center mt-3">
     <h3>CẬP NHẬT PHÒNG</h3>
     <hr>
-    <form method="POST" action="index.php?act=updatepb" class="">
+    <form method="POST" action="index.php?act=phongban&q=update" class="">
         <div class="mb-3 mt-3 row justify-content-center">
             <label for="tenPhong" class="col-2 col-form-label offset-2">Tên phòng</label>
             <div class="col">
@@ -38,10 +38,10 @@
                     echo '<h6>Bạn có chắc chắn muốn xóa phòng trên?</h6>';
                     echo '<div class="row">';
                     echo '<div class="col">';
-                    echo '<a href="index.php?act=delpb&id=' . $kqOne['maPhong'] . '" class="btn btn-sakura text-white">Xác nhận</a>';
+                    echo '<a href="index.php?act=phongban&q=delete&id=' . $kqOne['maPhong'] . '" class="btn btn-sakura text-white">Xác nhận</a>';
                     echo '</div>';
                     echo '<div class="col">';
-                    echo '<a href="index.php?act=phongban" class="btn btn-sakura text-white">Quay lại</a>';
+                    echo '<a href="index.php?act=phongban&q=index" class="btn btn-sakura text-white">Quay lại</a>';
                     echo '</div>';
                 }
                 ?>

@@ -11,12 +11,12 @@
                 <i class="fa-duotone fa-house me-2"></i> Trang chủ </a>
         </li>
         <li>
-            <a href="?act=phongban" class="nav-link
+            <a href="?act=phongban&q=index" class="nav-link
 					<?php echo (isset($_GET['act']) && ($_GET['act'] == 'phongban' || $_GET['act']=='delpb')) ? 'active' : 'text-dark'; ?> ">
                 <i class="fa-regular fa-apartment me-2"></i> Phòng ban </a>
         </li>
         <li>
-            <a href="?act=chucvu" class="nav-link
+            <a href="?act=chucvu&q=index" class="nav-link
 					<?php echo (isset($_GET['act']) && $_GET['act'] == 'chucvu') ? 'active' : 'text-dark'; ?> ">
                 <i class="fa-solid fa-badge-check me-2"></i> Chức vụ </a>
         </li>
