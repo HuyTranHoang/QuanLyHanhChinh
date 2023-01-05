@@ -1,13 +1,13 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 bg-light ms-0"
      style="height: 100vh">
-    <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+    <a href="?" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
         <i class="fa-solid fa-code me-3"></i>
         <span class="fs-4">Quản Lý</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto" id="sidebar">
         <li class="nav-item">
-            <a href="index.php" class="nav-link <?php echo (!isset($_GET['act'])) ? 'active' : 'text-dark'; ?>"
+            <a href="?" class="nav-link <?php echo (!isset($_GET['act'])) ? 'active' : 'text-dark'; ?>"
                aria-current="page">
                 <i class="fa-duotone fa-house me-2"></i>
                 Trang chủ
@@ -15,7 +15,7 @@
         </li>
         <li>
             <a href="?act=phongban"
-               class="nav-link <?php echo (isset($_GET['act']) && $_GET['act'] == 'phongban') ? 'active' : 'text-dark'; ?> ">
+               class="nav-link <?php echo (isset($_GET['act']) && ($_GET['act'] == 'phongban' || $_GET['act']=='delpb')) ? 'active' : 'text-dark'; ?> ">
                 <i class="fa-regular fa-apartment me-2"></i>
                 Phòng ban
             </a>

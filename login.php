@@ -1,7 +1,6 @@
 <?php
 session_start();
 include 'includes/autoloader.inc.php';
-include 'config.php';
 
 if (isset($_POST['userName']) && isset($_POST['password'])) {
     $user = new user();

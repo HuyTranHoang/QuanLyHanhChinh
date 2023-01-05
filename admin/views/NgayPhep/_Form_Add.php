@@ -9,7 +9,6 @@
     <hr class="mt-0">
 
     <form method="POST" action="index.php?act=ngayphep" class="">
-
         <div class="mb-3 mt-3 row justify-content-center">
             <label for="maPhong" class="col-2 col-form-label offset-2">Năm</label>
             <div class="col">
@@ -50,7 +49,6 @@
             </div>
         </div>
 
-
         <div class="mb-3 mt-3 row justify-content-center">
             <label for="tongSoNgay" class="col-2 col-form-label offset-2">Tổng số ngày</label>
             <div class="col">
@@ -59,11 +57,9 @@
             </div>
         </div>
 
-
         <div class="mb-3 col-6 offset-2">
             <input type="submit" class="btn d-inline-block text-white btn-sakura"
                    name="addnp" value="Thêm mới">
         </div>
     </form>
-
 </div>

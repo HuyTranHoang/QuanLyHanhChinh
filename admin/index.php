@@ -23,11 +23,11 @@ include '../includes/autoloader.inc.php';
 <body>
 <div class="container-fluid">
     <div class="row">
-        <?php include 'views/header.php'; ?>
+        <?php include 'views/Layout/_Header.php'; ?>
     </div>
     <div class="row">
         <div class="col-2 fixed-top ps-0">
-            <?php include_once 'views/sidebar.php' ?>
+            <?php include_once 'views/Layout/_Sidebar.php' ?>
         </div>
         <div class="col-8 offset-2">
             <?php
@@ -37,7 +37,7 @@ include '../includes/autoloader.inc.php';
                         case 'phongban':
                             $pb = new PhongBan();
                             $kq = $pb->getAll_PB();
-                            include 'views/phongban.php';
+                            include 'views/PhongBan/index.php';
                             break;
                         case 'addpb':
                             $pb = new PhongBan();
@@ -48,7 +48,7 @@ include '../includes/autoloader.inc.php';
                                 $pb->insertPB($tenPhong, $vietTat, $ghiChu);
                             }
                             $kq = $pb->getAll_PB();
-                            include 'views/phongban.php';
+                            include 'views/PhongBan/index.php';
                             break;
                         case 'updatepb':
                             $pb = new PhongBan();
@@ -56,7 +56,7 @@ include '../includes/autoloader.inc.php';
                                 $id = $_GET['id'];
                                 $kqOne = $pb->getOne_PB($id);
                                 $kq = $pb->getAll_PB();
-                                include 'views/phongban_update.php';
+                                include 'views/PhongBan/index.php';
                             }
                             if (isset($_POST['maPhong'])) {
                                 $maPhong = $_POST['maPhong'];
@@ -65,22 +65,28 @@ include '../includes/autoloader.inc.php';
                                 $ghiChu = $_POST['ghiChu'];
                                 $pb->updatePB($maPhong, $tenPhong, $vietTat, $ghiChu);
                                 $kq = $pb->getAll_PB();
-                                include 'views/phongban.php';
+                                include 'views/PhongBan/index.php';
                             }
                             break;
                         case 'delpb':
                             $pb = new PhongBan();
-                            if (isset($_GET['id'])) {
+                            if (isset($_GET['confirm'])) {
+                                $id = $_GET['id'];
+                                $kqOne = $pb->getOne_PB($id);
+                                $kq = $pb->getAll_PB();
+                                include 'views/PhongBan/index.php';
+                            }
+                            if (isset($_GET['id']) && !isset($_GET['confirm'])) {
                                 $id = $_GET['id'];
                                 $pb->delPB($id);
                                 $kq = $pb->getAll_PB();
-                                include 'views/phongban.php';
+                                include 'views/PhongBan/index.php';
                             }
                             break;
                         case 'chucvu':
                             $cv = new ChucVu();
                             $kq = $cv->getAll_CV();
-                            include 'views/chucvu.php';
+                            include 'views/ChucVu/index.php';
                             break;
                         case 'addcv':
                             $cv = new ChucVu();
@@ -89,7 +95,7 @@ include '../includes/autoloader.inc.php';
                                 $cv->insertCV($chucVu);
                             }
                             $kq = $cv->getAll_cv();
-                            include 'views/chucvu.php';
+                            include 'views/ChucVu/index.php';
                             break;
                         case 'updatecv':
                             $cv = new ChucVu();
@@ -97,23 +103,29 @@ include '../includes/autoloader.inc.php';
                                 $id = $_GET['id'];
                                 $kqOne = $cv->getOne_CV($id);
                                 $kq = $cv->getAll_CV();
-                                include 'views/chucvu_update.php';
+                                include 'views/ChucVu/index.php';
                             }
                             if (isset($_POST['maCV'])) {
                                 $maCV = $_POST['maCV'];
                                 $chucVu = $_POST['chucVu'];
                                 $cv->updateCV($maCV, $chucVu);
                                 $kq = $cv->getAll_CV();
-                                include 'views/chucvu.php';
+                                include 'views/ChucVu/index.php';
                             }
                             break;
                         case 'delcv':
                             $cv = new ChucVu();
-                            if (isset($_GET['id'])) {
+                            if (isset($_GET['confirm'])) {
+                                $id = $_GET['id'];
+                                $kqOne = $cv->getOne_CV($id);
+                                $kq = $cv->getAll_CV();
+                                include 'views/ChucVu/index.php';
+                            }
+                            if (isset($_GET['id']) && !isset($_GET['confirm'])) {
                                 $id = $_GET['id'];
                                 $cv->delCV($id);
                                 $kq = $cv->getAll_cv();
-                                include 'views/chucvu.php';
+                                include 'views/ChucVu/index.php';
                             }
                             break;
                         case 'nhanvien':
@@ -129,10 +141,10 @@ include '../includes/autoloader.inc.php';
                                 $nv->insertNV($tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV);
                             }
                             $kq = $nv->getAll_NV_PB_CV();
-                            include 'views/nhanvien.php';
+                            include 'views/NhanVien/index.php';
                             break;
                         case 'addnvform':
-                            include 'views/nhanvien_add.php';
+                            include 'views/NhanVien/index.php';
                             break;
                         case 'updatenv':
                             $nv = new NhanVien();
@@ -140,7 +152,7 @@ include '../includes/autoloader.inc.php';
                                 $id = $_GET['id'];
                                 $kqOne = $nv->getOne_NV($id);
                                 $kq = $nv->getAll_NV();
-                                include 'views/nhanvien_update.php';
+                                include 'views/NhanVien/index.php';
                             }
                             if (isset($_POST['maNV'])) {
                                 $maCV = $_POST['maCV'];
@@ -154,16 +166,22 @@ include '../includes/autoloader.inc.php';
                                 $nv->updateNV($maNV, $tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh,
                                     $maCV);
                                 $kq = $nv->getAll_NV_PB_CV();
-                                include 'views/nhanvien.php';
+                                include 'views/NhanVien/index.php';
                             }
                             break;
                         case 'delnv':
                             $nv = new NhanVien();
-                            if (isset($_GET['id'])) {
+                            if (isset($_GET['confirm'])) {
+                                $id = $_GET['id'];
+                                $kqOne = $nv->getOne_NV($id);
+                                $kq = $nv->getAll_NV();
+                                include 'views/NhanVien/index.php';
+                            }
+                            if (isset($_GET['id']) && !isset($_GET['confirm'])) {
                                 $id = $_GET['id'];
                                 $nv->delNV($id);
                                 $kq = $nv->getAll_NV_PB_CV();
-                                include 'views/nhanvien.php';
+                                include 'views/NhanVien/index.php';
                             }
                             break;
                         case 'ngayphep':
@@ -177,10 +195,10 @@ include '../includes/autoloader.inc.php';
                                 $np->insertNP($maNV, $soNgayHienTai, $tongSoNgay, $nam, $ghiChu);
                             }
                             $kq = $np->getAll_NP_NV();
-                            include 'views/ngayphep.php';
+                            include 'views/NgayPhep/index.php';
                             break;
                         case 'addnpform':
-                            include 'views/ngayphep_add.php';
+                            include 'views/NgayPhep/index.php';
                             break;
                         case 'updatenp':
                             $np = new NgayPhep();
@@ -188,7 +206,7 @@ include '../includes/autoloader.inc.php';
                                 $id = $_GET['id'];
                                 $kqOne = $np->getOne_NP_NV($id);
                                 $kq = $np->getAll_NP_NV();
-                                include 'views/ngayphep_update.php';
+                                include 'views/NgayPhep/index.php';
                             }
                             if (isset($_POST['maPhep'])) {
                                 $maNV = $_POST['maNV'];
@@ -199,16 +217,22 @@ include '../includes/autoloader.inc.php';
                                 $maPhep = $_POST['maPhep'];
                                 $np->updateNP($maPhep, $maNV, $soNgayHienTai, $tongSoNgay, $nam, $ghiChu);
                                 $kq = $np->getAll_NP_NV();
-                                include 'views/ngayphep.php';
+                                include 'views/NgayPhep/index.php';
                             }
                             break;
                         case 'delnp':
                             $np = new NgayPhep();
-                            if (isset($_GET['id'])) {
+                            if (isset($_GET['confirm'])) {
+                                $id = $_GET['id'];
+                                $kqOne = $np->getOne_NP_NV($id);
+                                $kq = $np->getAll_NP_NV();
+                                include 'views/NgayPhep/index.php';
+                            }
+                            if (isset($_GET['id']) && !isset($_GET['confirm'])) {
                                 $id = $_GET['id'];
                                 $np->delNP($id);
                                 $kq = $np->getAll_NP_NV();
-                                include 'views/ngayphep.php';
+                                include 'views/NgayPhep/index.php';
                             }
                             break;
                         case 'phieunghiphep':
@@ -218,7 +242,7 @@ include '../includes/autoloader.inc.php';
                             include 'views/taophieu.php';
                             break;
                         case 'thoat':
-                                unset($_SESSION['role']);
+                            unset($_SESSION['role']);
                             header('location:../login.php');
                             exit();
                             break;
@@ -237,6 +261,7 @@ include '../includes/autoloader.inc.php';
         </div>
     </div>
     <div class="row">
+        <?php include 'views/Layout/_Footer.php'; ?>
     </div>
 </div>
 </body>

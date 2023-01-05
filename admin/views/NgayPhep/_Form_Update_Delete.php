@@ -73,9 +73,24 @@
         <input type="hidden" name="soNgayHienTai" value="<?= $kqOne['soNgayHienTai'] ?>">
         <input type="hidden" name="maPhep" value="<?= $kqOne['maPhep'] ?>">
 
-        <div class="mb-3 col-6 offset-2">
-            <button type="submit" class="btn text-light d-inline-block btn-sakura">Cập nhật</button>
-
+        <div class="mb-3 row offset-2">
+            <div class="col-6">
+                <?php echo (isset($_GET['confirm'])) ? false : '<button type="submit" class="btn text-light d-inline-block btn-sakura">Cập nhật</button>'; ?>
+            </div>
+            <div class="col-6">
+                <?php
+                if (isset($_GET['confirm'])) {
+                    echo '<h6>Bạn có chắc chắn muốn xóa ngày phép trên?</h6>';
+                    echo '<div class="row">';
+                    echo '<div class="col">';
+                    echo '<a href="index.php?act=delnp&id=' . $kqOne['maPhep'] . '" class="btn btn-sakura text-white">Xác nhận</a>';
+                    echo '</div>';
+                    echo '<div class="col">';
+                    echo '<a href="index.php?act=ngayphep" class="btn btn-sakura text-white">Quay lại</a>';
+                    echo '</div>';
+                }
+                ?>
+            </div>
         </div>
     </form>
 

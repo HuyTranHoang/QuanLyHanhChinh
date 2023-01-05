@@ -28,35 +28,24 @@
 
         <input type="hidden" name="maPhong" value="<?= $kqOne['maPhong'] ?>">
 
-        <div class="mb-3 col-6">
-            <button type="submit" class="btn text-light d-inline-block btn-sakura">Cập nhật</button>
+        <div class="mb-3 row">
+            <div class="col-6">
+                <?php echo (isset($_GET['confirm'])) ? false : '<button type="submit" class="btn text-light d-inline-block btn-sakura">Cập nhật</button>'; ?>
+            </div>
+            <div class="col-6">
+                <?php
+                if (isset($_GET['confirm'])) {
+                    echo '<h6>Bạn có chắc chắn muốn xóa phòng trên?</h6>';
+                    echo '<div class="row">';
+                    echo '<div class="col">';
+                    echo '<a href="index.php?act=delpb&id=' . $kqOne['maPhong'] . '" class="btn btn-sakura text-white">Xác nhận</a>';
+                    echo '</div>';
+                    echo '<div class="col">';
+                    echo '<a href="index.php?act=phongban" class="btn btn-sakura text-white">Quay lại</a>';
+                    echo '</div>';
+                }
+                ?>
+            </div>
         </div>
     </form>
-
-</div>
-
-<div class="mt-4">
-    <h3>DANH SÁCH PHÒNG</h3>
-    <hr>
-    <table class="table table-striped table-bordered">
-        <tr class="table-primary">
-            <th>#</th>
-            <th>Tên phòng</th>
-            <th>Tên viết tắt</th>
-            <th><i class="fa-duotone fa-trash"></i></th>
-        </tr>
-
-        <?php
-        if (isset($kq) && count($kq) > 0) {
-            foreach ($kq as $index => $item) {
-                echo '<tr>';
-                echo '<td>' . $index + 1 . '</td>';
-                echo '<td><a href="index.php?act=updatepb&id=' . $item['maPhong'] . '" class="text-decoration-none" >' . $item['tenPhong'] . '</a></td>';
-                echo '<td>' . $item['vietTat'] . '</td>';
-                echo '<td><a href="index.php?act=delpb&id=' . $item['maPhong'] . '"><i class="fa-duotone fa-x"></a></i></td>';
-                echo '</tr>';
-            }
-        }
-        ?>
-    </table>
 </div>

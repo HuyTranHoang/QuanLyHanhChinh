@@ -96,11 +96,24 @@
 
         <input type="hidden" name="maNV" value="<?= $kqOne['maNV'] ?>">
 
-        <div class="mb-3 col-6 offset-2">
-            <button type="submit" class="btn d-inline-block text-light btn-sakura">
-                Cập nhật
-            </button>
+        <div class="mb-3 row offset-2">
+            <div class="col-6">
+                <?php echo (isset($_GET['confirm'])) ? false : '<button type="submit" class="btn text-light d-inline-block btn-sakura">Cập nhật</button>'; ?>
+            </div>
+            <div class="col-6">
+                <?php
+                if (isset($_GET['confirm'])) {
+                    echo '<h6>Bạn có chắc chắn muốn xóa nhân viên trên?</h6>';
+                    echo '<div class="row">';
+                    echo '<div class="col">';
+                    echo '<a href="index.php?act=delnv&id=' . $kqOne['maNV'] . '" class="btn btn-sakura text-white">Xác nhận</a>';
+                    echo '</div>';
+                    echo '<div class="col">';
+                    echo '<a href="index.php?act=nhanvien" class="btn btn-sakura text-white">Quay lại</a>';
+                    echo '</div>';
+                }
+                ?>
+            </div>
         </div>
     </form>
-
 </div>

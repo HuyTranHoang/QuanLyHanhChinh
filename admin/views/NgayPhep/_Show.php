@@ -23,7 +23,7 @@
                 echo '<td><a href="index.php?act=updatenp&id=' . $item['maPhep'] . '" class="text-decoration-none" >' . $item['tenNV'] . '</a></td>';
                 echo '<td>' . $item['soNgayHienTai'] . '</td>';
                 echo '<td>' . $item['tongSoNgay'] . '</td>';
-                echo '<td><a href="index.php?act=delnp&id=' . $item['maPhep'] . '"><i class="fa-duotone fa-x"></a></i></td>';
+                echo '<td><a href="index.php?act=delnp&confirm&id=' . $item['maPhep'] . '"><i class="fa-duotone fa-x"></a></i></td>';
                 echo '</tr>';
             }
         }
