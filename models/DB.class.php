@@ -3,7 +3,7 @@
 class DB
 {
 
-    protected function connectDB()
+    protected static function connectDB()
     {
         $host = 'localhost';
         $username = 'root';
@@ -20,5 +20,7 @@ class DB
 
         return $PDO;
     }
+
+
 
 }

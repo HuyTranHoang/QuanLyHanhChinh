@@ -6,9 +6,9 @@ class PhongBan extends DB
     {
     }
 
-    public function insertPB($tenPhong, $vietTat, $ghiChu)
+    public static function insertPB($tenPhong, $vietTat, $ghiChu)
     {
-        $conn = $this->connectDB();
+        $conn = self::connectDB();
         $query = "INSERT INTO phongban (maPhong, tenPhong, vietTat,ghiChu) VALUES (NULL,:tenPhong,:vietTat,:ghiChu)";
         $stmt = $conn -> prepare($query);
         $stmt->bindParam(":tenPhong", $tenPhong);
@@ -19,9 +19,9 @@ class PhongBan extends DB
 
     }
 
-    public function updatePB($id, $tenPhong, $vietTat, $ghiChu)
+    public static function updatePB($id, $tenPhong, $vietTat, $ghiChu)
     {
-        $conn = $this->connectDB();
+        $conn = self::connectDB();
         $query = "UPDATE phongban SET tenPhong=:tenPhong, vietTat=:vietTat, ghiChu=:ghiChu WHERE maPhong=:id";
         $stmt = $conn -> prepare($query);
         $stmt->bindParam(":id", $id);
@@ -32,9 +32,9 @@ class PhongBan extends DB
         $conn = null;
     }
 
-    public function getOne_PB($id)
+    public static function getOne_PB($id)
     {
-        $conn = $this->connectDB();
+        $conn = self::connectDB();
         $query = "SELECT * FROM phongban where maPhong =" . $id;
         $stmt = $conn -> prepare($query);
         $stmt->execute();
@@ -43,18 +43,18 @@ class PhongBan extends DB
         return $stmt->fetch();
     }
 
-    public function delPB($id)
+    public static function delPB($id)
     {
-        $conn = $this->connectDB();
+        $conn = self::connectDB();
         $query = "DELETE FROM phongban WHERE maPhong=" . $id;
         $conn -> exec($query);
         $conn = null;
 
     }
 
-    public function getAll_PB()
+    public static function getAll_PB()
     {
-        $conn = $this->connectDB();
+        $conn = self::connectDB();
         $query = "SELECT * FROM phongban";
         $stmt = $conn -> prepare($query);
         $stmt->execute();

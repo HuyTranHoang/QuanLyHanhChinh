@@ -35,98 +35,29 @@ include '../includes/autoloader.inc.php';
                 if (isset($_GET['act'])) {
                     switch ($_GET['act']) {
                         case 'phongban':
-                            $pb = new PhongBan();
-                            $kq = $pb->getAll_PB();
-                            include 'views/PhongBan/index.php';
+                            $test = 'index';
+                            PhongBanController::$test();
                             break;
                         case 'addpb':
-                            $pb = new PhongBan();
-                            if ((isset($_POST['addpb'])) && ($_POST['addpb'])) {
-                                $tenPhong = $_POST['tenPhong'];
-                                $vietTat = $_POST['vietTat'];
-                                $ghiChu = $_POST['ghiChu'];
-                                $pb->insertPB($tenPhong, $vietTat, $ghiChu);
-                            }
-                            $kq = $pb->getAll_PB();
-                            include 'views/PhongBan/index.php';
+                            PhongBanController::create();
                             break;
                         case 'updatepb':
-                            $pb = new PhongBan();
-                            if (isset($_GET['id'])) {
-                                $id = $_GET['id'];
-                                $kqOne = $pb->getOne_PB($id);
-                                $kq = $pb->getAll_PB();
-                                include 'views/PhongBan/index.php';
-                            }
-                            if (isset($_POST['maPhong'])) {
-                                $maPhong = $_POST['maPhong'];
-                                $tenPhong = $_POST['tenPhong'];
-                                $vietTat = $_POST['vietTat'];
-                                $ghiChu = $_POST['ghiChu'];
-                                $pb->updatePB($maPhong, $tenPhong, $vietTat, $ghiChu);
-                                $kq = $pb->getAll_PB();
-                                include 'views/PhongBan/index.php';
-                            }
+                            PhongBanController::update();
                             break;
                         case 'delpb':
-                            $pb = new PhongBan();
-                            if (isset($_GET['confirm'])) {
-                                $id = $_GET['id'];
-                                $kqOne = $pb->getOne_PB($id);
-                                $kq = $pb->getAll_PB();
-                                include 'views/PhongBan/index.php';
-                            }
-                            if (isset($_GET['id']) && !isset($_GET['confirm'])) {
-                                $id = $_GET['id'];
-                                $pb->delPB($id);
-                                $kq = $pb->getAll_PB();
-                                include 'views/PhongBan/index.php';
-                            }
+                            PhongBanController::delete();
                             break;
                         case 'chucvu':
-                            $cv = new ChucVu();
-                            $kq = $cv->getAll_CV();
-                            include 'views/ChucVu/index.php';
+                            $cvCtr->index();
                             break;
                         case 'addcv':
-                            $cv = new ChucVu();
-                            if ((isset($_POST['addcv'])) && ($_POST['addcv'])) {
-                                $chucVu = $_POST['chucVu'];
-                                $cv->insertCV($chucVu);
-                            }
-                            $kq = $cv->getAll_cv();
-                            include 'views/ChucVu/index.php';
+                            $cvCtr->create();
                             break;
                         case 'updatecv':
-                            $cv = new ChucVu();
-                            if (isset($_GET['id'])) {
-                                $id = $_GET['id'];
-                                $kqOne = $cv->getOne_CV($id);
-                                $kq = $cv->getAll_CV();
-                                include 'views/ChucVu/index.php';
-                            }
-                            if (isset($_POST['maCV'])) {
-                                $maCV = $_POST['maCV'];
-                                $chucVu = $_POST['chucVu'];
-                                $cv->updateCV($maCV, $chucVu);
-                                $kq = $cv->getAll_CV();
-                                include 'views/ChucVu/index.php';
-                            }
+                            $cvCtr->update();
                             break;
                         case 'delcv':
-                            $cv = new ChucVu();
-                            if (isset($_GET['confirm'])) {
-                                $id = $_GET['id'];
-                                $kqOne = $cv->getOne_CV($id);
-                                $kq = $cv->getAll_CV();
-                                include 'views/ChucVu/index.php';
-                            }
-                            if (isset($_GET['id']) && !isset($_GET['confirm'])) {
-                                $id = $_GET['id'];
-                                $cv->delCV($id);
-                                $kq = $cv->getAll_cv();
-                                include 'views/ChucVu/index.php';
-                            }
+                            $cvCtr->delete();
                             break;
                         case 'nhanvien':
                             $nv = new NhanVien();
