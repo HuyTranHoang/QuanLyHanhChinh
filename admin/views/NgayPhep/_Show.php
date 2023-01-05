@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col"><h5>Danh sách ngày nghỉ</h5></div>
         <div class="col">
-            <a href="index.php?act=addnpform"><h5 class="float-end"><i class="fa-duotone fa-notes"></i> Thêm mới</h5></a>
+            <a href="index.php?act=ngayphep&q=create"><h5 class="float-end"><i class="fa-duotone fa-notes"></i> Thêm mới</h5></a>
         </div>
     </div>
 
@@ -20,10 +20,10 @@
             foreach ($kq as $index => $item) {
                 echo '<tr>';
                 echo '<td>' . $index + 1 . '</td>';
-                echo '<td><a href="index.php?act=updatenp&id=' . $item['maPhep'] . '" class="text-decoration-none" >' . $item['tenNV'] . '</a></td>';
+                echo '<td><a href="index.php?act=ngayphep&q=update&id=' . $item['maPhep'] . '" class="text-decoration-none" >' . $item['tenNV'] . '</a></td>';
                 echo '<td>' . $item['soNgayHienTai'] . '</td>';
                 echo '<td>' . $item['tongSoNgay'] . '</td>';
-                echo '<td><a href="index.php?act=delnp&confirm&id=' . $item['maPhep'] . '"><i class="fa-duotone fa-x"></a></i></td>';
+                echo '<td><a href="index.php?act=ngayphep&q=delete&confirm&id=' . $item['maPhep'] . '"><i class="fa-duotone fa-x"></a></i></td>';
                 echo '</tr>';
             }
         }

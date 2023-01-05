@@ -25,7 +25,7 @@ function myAutoLoader($className) {
 function myCtrAutoLoader($className) {
     $url = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
-    $path = 'Controller/';
+    $path = 'controller/';
 
     $extension = ".class.php";
     $fullpath = $path . $className . $extension;

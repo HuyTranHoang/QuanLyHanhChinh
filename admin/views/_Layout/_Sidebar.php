@@ -21,22 +21,22 @@
                 <i class="fa-solid fa-badge-check me-2"></i> Chức vụ </a>
         </li>
         <li>
-            <a href="?act=nhanvien" class="nav-link
+            <a href="?act=nhanvien&q=index" class="nav-link
 					<?php echo (isset($_GET['act']) && ($_GET['act'] == 'nhanvien' ||$_GET['act'] == 'addnvform' )) ? 'active' : 'text-dark'; ?> ">
                 <i class="fa-solid fa-user me-2"></i> Nhân viên </a>
         </li>
         <li>
-            <a href="?act=ngayphep" class="nav-link
+            <a href="?act=ngayphep&q=index" class="nav-link
 					<?php echo (isset($_GET['act']) && ($_GET['act'] == 'ngayphep' || $_GET['act'] == 'addnpform')) ? 'active' : 'text-dark'; ?> ">
                 <i class="fa-duotone fa-calendar-days me-2"></i> Ngày phép </a>
         </li>
         <li>
-            <a href="?act=phieunghiphep" class="nav-link
+            <a href="?act=phieunghiphep&q=index" class="nav-link
 					<?php echo (isset($_GET['act']) && $_GET['act'] == 'phieunghiphep') ? 'active' : 'text-dark'; ?> ">
                 <i class="fa-regular fa-notes me-2"></i> Phiếu nghỉ phép </a>
         </li>
         <li>
-            <a href="?act=taophieu" class="nav-link
+            <a href="?act=taophieu&q=index" class="nav-link
 					<?php echo (isset($_GET['act']) && $_GET['act'] == 'taophieu') ? 'active' : 'text-dark'; ?> ">
                 <i class="fa-duotone fa-note"></i> Tạo phếu </a>
         </li>

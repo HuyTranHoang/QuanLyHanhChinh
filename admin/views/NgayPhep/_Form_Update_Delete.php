@@ -2,13 +2,13 @@
     <div class="row">
         <div class="col"><h5>Thêm mới ngày phép</h5></div>
         <div class="col">
-            <a href="index.php?act=ngayphep"><h5 class="float-end"><i class="fa-duotone fa-list"></i> Danh sách</h5></a>
+            <a href="index.php?act=ngayphep&q=index"><h5 class="float-end"><i class="fa-duotone fa-list"></i> Danh sách</h5></a>
         </div>
     </div>
 
     <hr class="mt-0">
 
-    <form method="POST" action="index.php?act=updatenp" class="">
+    <form method="POST" action="index.php?act=ngayphep&q=update" class="">
 
         <div class="mb-3 mt-3 row justify-content-center">
             <label for="maPhong" class="col-2 col-form-label offset-2">Năm</label>
@@ -83,10 +83,10 @@
                     echo '<h6>Bạn có chắc chắn muốn xóa ngày phép trên?</h6>';
                     echo '<div class="row">';
                     echo '<div class="col">';
-                    echo '<a href="index.php?act=delnp&id=' . $kqOne['maPhep'] . '" class="btn btn-sakura text-white">Xác nhận</a>';
+                    echo '<a href="index.php?act=ngayphep&q=delete&id=' . $kqOne['maPhep'] . '" class="btn btn-sakura text-white">Xác nhận</a>';
                     echo '</div>';
                     echo '<div class="col">';
-                    echo '<a href="index.php?act=ngayphep" class="btn btn-sakura text-white">Quay lại</a>';
+                    echo '<a href="index.php?act=ngayphep&q=index" class="btn btn-sakura text-white">Quay lại</a>';
                     echo '</div>';
                 }
                 ?>

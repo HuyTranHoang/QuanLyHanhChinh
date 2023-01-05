@@ -35,7 +35,7 @@ include '../includes/autoloader.inc.php';
                 if (isset($_GET['act'])) {
                     switch ($_GET['act']) {
                         case 'phongban':
-                            //q nhận 4 giá trị index, create, update, delete
+                            //$q nhận 4 giá trị index, create, update, delete
                             $q = $_GET['q'];
                             PhongBanController::$q();
                             break;
@@ -44,111 +44,12 @@ include '../includes/autoloader.inc.php';
                             ChucVuController::$q();
                             break;
                         case 'nhanvien':
-                            $nv = new NhanVien();
-                            if ((isset($_POST['addnv'])) && ($_POST['addnv'])) {
-                                $tenNV = $_POST['tenNV'];
-                                $userName = $_POST['userName'];
-                                $password = $_POST['password'];
-                                $maPhong = $_POST['maPhong'];
-                                $gioiTinh = $_POST['gioiTinh'];
-                                $ngaySinh = $_POST['ngaySinh'];
-                                $maCV = $_POST['maCV'];
-                                $nv->insertNV($tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV);
-                            }
-                            $kq = $nv->getAll_NV_PB_CV();
-                            include 'views/NhanVien/index.php';
-                            break;
-                        case 'addnvform':
-                            include 'views/NhanVien/index.php';
-                            break;
-                        case 'updatenv':
-                            $nv = new NhanVien();
-                            if (isset($_GET['id'])) {
-                                $id = $_GET['id'];
-                                $kqOne = $nv->getOne_NV($id);
-                                $kq = $nv->getAll_NV();
-                                include 'views/NhanVien/index.php';
-                            }
-                            if (isset($_POST['maNV'])) {
-                                $maCV = $_POST['maCV'];
-                                $tenNV = $_POST['tenNV'];
-                                $userName = $_POST['userName'];
-                                $password = $_POST['password'];
-                                $maPhong = $_POST['maPhong'];
-                                $gioiTinh = $_POST['gioiTinh'];
-                                $ngaySinh = $_POST['ngaySinh'];
-                                $maNV = $_POST['maNV'];
-                                $nv->updateNV($maNV, $tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh,
-                                    $maCV);
-                                $kq = $nv->getAll_NV_PB_CV();
-                                include 'views/NhanVien/index.php';
-                            }
-                            break;
-                        case 'delnv':
-                            $nv = new NhanVien();
-                            if (isset($_GET['confirm'])) {
-                                $id = $_GET['id'];
-                                $kqOne = $nv->getOne_NV($id);
-                                $kq = $nv->getAll_NV();
-                                include 'views/NhanVien/index.php';
-                            }
-                            if (isset($_GET['id']) && !isset($_GET['confirm'])) {
-                                $id = $_GET['id'];
-                                $nv->delNV($id);
-                                $kq = $nv->getAll_NV_PB_CV();
-                                include 'views/NhanVien/index.php';
-                            }
+                            $q = $_GET['q'];
+                            NhanVienController::$q();
                             break;
                         case 'ngayphep':
-                            $np = new NgayPhep();
-                            if ((isset($_POST['addnp'])) && ($_POST['addnp'])) {
-                                $maNV = $_POST['maNV'];
-                                $soNgayHienTai = 0;
-                                $tongSoNgay = $_POST['tongSoNgay'];
-                                $nam = $_POST['nam'];
-                                $ghiChu = "";
-                                $np->insertNP($maNV, $soNgayHienTai, $tongSoNgay, $nam, $ghiChu);
-                            }
-                            $kq = $np->getAll_NP_NV();
-                            include 'views/NgayPhep/index.php';
-                            break;
-                        case 'addnpform':
-                            include 'views/NgayPhep/index.php';
-                            break;
-                        case 'updatenp':
-                            $np = new NgayPhep();
-                            if (isset($_GET['id'])) {
-                                $id = $_GET['id'];
-                                $kqOne = $np->getOne_NP_NV($id);
-                                $kq = $np->getAll_NP_NV();
-                                include 'views/NgayPhep/index.php';
-                            }
-                            if (isset($_POST['maPhep'])) {
-                                $maNV = $_POST['maNV'];
-                                $soNgayHienTai = $_POST['soNgayHienTai'];
-                                $tongSoNgay = $_POST['tongSoNgay'];
-                                $nam = $_POST['nam'];
-                                $ghiChu = $_POST['ghiChu'];
-                                $maPhep = $_POST['maPhep'];
-                                $np->updateNP($maPhep, $maNV, $soNgayHienTai, $tongSoNgay, $nam, $ghiChu);
-                                $kq = $np->getAll_NP_NV();
-                                include 'views/NgayPhep/index.php';
-                            }
-                            break;
-                        case 'delnp':
-                            $np = new NgayPhep();
-                            if (isset($_GET['confirm'])) {
-                                $id = $_GET['id'];
-                                $kqOne = $np->getOne_NP_NV($id);
-                                $kq = $np->getAll_NP_NV();
-                                include 'views/NgayPhep/index.php';
-                            }
-                            if (isset($_GET['id']) && !isset($_GET['confirm'])) {
-                                $id = $_GET['id'];
-                                $np->delNP($id);
-                                $kq = $np->getAll_NP_NV();
-                                include 'views/NgayPhep/index.php';
-                            }
+                            $q = $_GET['q'];
+                            NgayPhepController::$q();
                             break;
                         case 'phieunghiphep':
                             include 'views/phieunghiphep.php';

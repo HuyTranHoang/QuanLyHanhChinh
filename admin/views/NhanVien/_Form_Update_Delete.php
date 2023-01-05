@@ -2,13 +2,13 @@
     <div class="row">
         <div class="col"><h5>Thêm mới nhân viên</h5></div>
         <div class="col">
-            <a href="index.php?act=nhanvien"><h5 class="float-end"><i class="fa-duotone fa-list"></i> Danh sách</h5></a>
+            <a href="index.php?act=nhanvien&q=index"><h5 class="float-end"><i class="fa-duotone fa-list"></i> Danh sách</h5></a>
         </div>
     </div>
 
     <hr class="mt-0">
 
-    <form method="POST" action="index.php?act=updatenv" class="">
+    <form method="POST" action="index.php?act=nhanvien&q=update" class="">
 
         <div class="mb-3 mt-3 row justify-content-center">
             <label for="tenNV" class="col-2 col-form-label offset-2">Tên nhân viên</label>
@@ -106,10 +106,10 @@
                     echo '<h6>Bạn có chắc chắn muốn xóa nhân viên trên?</h6>';
                     echo '<div class="row">';
                     echo '<div class="col">';
-                    echo '<a href="index.php?act=delnv&id=' . $kqOne['maNV'] . '" class="btn btn-sakura text-white">Xác nhận</a>';
+                    echo '<a href="index.php?act=nhanvien&q=delete&id=' . $kqOne['maNV'] . '" class="btn btn-sakura text-white">Xác nhận</a>';
                     echo '</div>';
                     echo '<div class="col">';
-                    echo '<a href="index.php?act=nhanvien" class="btn btn-sakura text-white">Quay lại</a>';
+                    echo '<a href="index.php?act=nhanvien&q=index" class="btn btn-sakura text-white">Quay lại</a>';
                     echo '</div>';
                 }
                 ?>

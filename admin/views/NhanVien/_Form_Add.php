@@ -2,13 +2,13 @@
     <div class="row">
         <div class="col"><h5>Thêm mới nhân viên</h5></div>
         <div class="col">
-            <a href="index.php?act=nhanvien"><h5 class="float-end"><i class="fa-duotone fa-list"></i> Danh sách</h5></a>
+            <a href="index.php?act=nhanvien&q=index"><h5 class="float-end"><i class="fa-duotone fa-list"></i> Danh sách</h5></a>
         </div>
     </div>
 
     <hr class="mt-0">
 
-    <form method="POST" action="index.php?act=nhanvien" class="">
+    <form method="POST" action="index.php?act=nhanvien&q=create" class="">
 
         <div class="mb-3 mt-3 row justify-content-center">
             <label for="tenNV" class="col-2 col-form-label offset-2">Tên nhân viên</label>
