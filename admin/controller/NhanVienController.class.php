@@ -16,7 +16,11 @@ class NhanVienController extends NhanVien
             $gioiTinh = $_POST['gioiTinh'];
             $ngaySinh = $_POST['ngaySinh'];
             $maCV = $_POST['maCV'];
-            self::insertNV($tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV);
+            $tenHinh = $_FILES['hinh']['name'];
+            $sizeHinh = $_FILES['hinh']['size'];
+            $tmpTenHinh = $_FILES['hinh']['tmp_name'];
+            move_uploaded_file($tmpTenHinh,'images/'.$tenHinh);
+            self::insertNV($tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV,$tenHinh);
             header('location: index.php?act=nhanvien&q=index');
         }
         include 'views/NhanVien/index.php';

@@ -31,7 +31,7 @@ class PhongBan extends DB
         $conn = null;
     }
 
-    public static function getOne_PB($id)
+    public static function getOne($id)
     {
         $conn = self::connectDB();
         $query = "SELECT * FROM phongban where maPhong =" . $id;
@@ -42,7 +42,7 @@ class PhongBan extends DB
         return $stmt->fetch();
     }
 
-    public static function delPB($id)
+    public static function deletePB($id)
     {
         $conn = self::connectDB();
         $query = "DELETE FROM phongban WHERE maPhong=" . $id;
@@ -51,7 +51,7 @@ class PhongBan extends DB
 
     }
 
-    public static function getAll_PB()
+    public static function getAll()
     {
         $conn = self::connectDB();
         $query = "SELECT * FROM phongban";

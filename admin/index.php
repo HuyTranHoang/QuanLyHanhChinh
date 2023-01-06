@@ -32,7 +32,7 @@ include '../includes/autoloader.inc.php';
         <div class="col-8 offset-2">
             <?php
             if (isset($_SESSION['role'])) {
-                if (isset($_GET['act'])) {
+                if (isset($_GET['act']) && isset($_GET['q'])) {
                     switch ($_GET['act']) {
                         case 'phongban':
                             //$q nhận 4 giá trị index, create, update, delete
@@ -52,7 +52,7 @@ include '../includes/autoloader.inc.php';
                             NgayPhepController::$q();
                             break;
                         case 'phieunghiphep':
-                            include 'views/phieunghiphep.php';
+//                            include 'views/phieunghiphep.php';
                             break;
                         case 'taophieu':
                             include 'views/taophieu.php';
@@ -61,7 +61,6 @@ include '../includes/autoloader.inc.php';
                             unset($_SESSION['role']);
                             header('location:../login.php');
                             exit();
-                            break;
                         default:
                             include 'views/home.php';
                             break;

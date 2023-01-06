@@ -6,13 +6,13 @@ class NhanVien extends DB
     {
     }
 
-    public static function insertNV($tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV)
+    public static function insertNV($tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV,$hinh)
     {
         $conn = self::connectDB();
-        $query = "INSERT INTO `nhanvien` (`maNV`, `tenNV`, `userName`, `password`, `maPhong`, `gioiTinh`, `ngaySinh`, `maCV`) 
-            VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO `nhanvien` (`maNV`, `tenNV`, `userName`, `password`, `maPhong`, `gioiTinh`, `ngaySinh`, `maCV`,`hinh` ) 
+            VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($query);
-        $stmt->execute([$tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV]);
+        $stmt->execute([$tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV,$hinh]);
         $conn = null;
 
     }

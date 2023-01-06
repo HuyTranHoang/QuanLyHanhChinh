@@ -4,7 +4,7 @@ class PhongBanController extends PhongBan
 {
 
     public static function index() {
-        $kq = self::getAll_PB();
+        $kq = self::getAll();
         include 'views/PhongBan/index.php';
     }
 
@@ -15,15 +15,15 @@ class PhongBanController extends PhongBan
             $ghiChu = $_POST['ghiChu'];
             self::insertPB($tenPhong, $vietTat, $ghiChu);
         }
-        $kq = self::getAll_PB();
+        $kq = self::getAll();
         include 'views/PhongBan/index.php';
     }
 
     public static function update() {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
-            $kqOne = self::getOne_PB($id);
-            $kq = self::getAll_PB();
+            $kqOne = self::getOne($id);
+            $kq = self::getAll();
             include 'views/PhongBan/index.php';
         }
         if (isset($_POST['maPhong'])) {
@@ -32,7 +32,7 @@ class PhongBanController extends PhongBan
             $vietTat = $_POST['vietTat'];
             $ghiChu = $_POST['ghiChu'];
             self::updatePB($maPhong, $tenPhong, $vietTat, $ghiChu);
-            $kq = self::getAll_PB();
+            $kq = self::getAll();
             include 'views/PhongBan/index.php';
         }
     }
@@ -40,14 +40,14 @@ class PhongBanController extends PhongBan
     public static  function delete(){
         if (isset($_GET['confirm'])) {
             $id = $_GET['id'];
-            $kqOne = self::getOne_PB($id);
-            $kq = self::getAll_PB();
+            $kqOne = self::getOne($id);
+            $kq = self::getAll();
             include 'views/PhongBan/index.php';
         }
         if (isset($_GET['id']) && !isset($_GET['confirm'])) {
             $id = $_GET['id'];
-            self::delPB($id);
-            $kq = self::getAll_PB();
+            self::deletePB($id);
+            $kq = self::getAll();
             include 'views/PhongBan/index.php';
         }
     }

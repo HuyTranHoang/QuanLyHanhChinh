@@ -30,3 +30,7 @@
         ?>
     </table>
 </div>
+
+<!--Ngày trong mysql có dạng năm tháng ngày,
+nên để in ra cho đẹp thì nên dùng
+date("d-m-Y,strtotime($item['ngaysinh]))-->

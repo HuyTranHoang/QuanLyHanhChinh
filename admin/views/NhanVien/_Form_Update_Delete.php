@@ -66,7 +66,7 @@
                 <select class="form-select shadow-sm w-25" name="maPhong" id="maPhong">
                     <?php
                     $pb = new PhongBan();
-                    $kqpb = $pb->getAll_PB();
+                    $kqpb = $pb->getAll();
                     foreach ($kqpb as $item) {
                         echo '<option ';
                         echo ($kqOne['maPhong'] == $item['maPhong']) ? 'selected ' : false;
@@ -91,6 +91,13 @@
                     }
                     ?>
                 </select>
+            </div>
+        </div>
+
+        <div class="mb-3 mt-3 row justify-content-center">
+            <label for="hinh" class="col-2 col-form-label offset-2">Avatar</label>
+            <div class="col">
+                <input type="file" class="form-control shadow-sm w-50" id="hinh" name="hinh">
             </div>
         </div>
 

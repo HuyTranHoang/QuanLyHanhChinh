@@ -8,7 +8,7 @@
 
     <hr class="mt-0">
 
-    <form method="POST" action="index.php?act=nhanvien&q=create" class="">
+    <form method="POST" action="index.php?act=nhanvien&q=create" enctype="multipart/form-data">
 
         <div class="mb-3 mt-3 row justify-content-center">
             <label for="tenNV" class="col-2 col-form-label offset-2">Tên nhân viên</label>
@@ -57,7 +57,7 @@
                 <select class="form-select shadow-sm w-25" name="maPhong" id="maPhong">
                     <?php
                     $pb = new PhongBan();
-                    $kqpb = $pb->getAll_PB();
+                    $kqpb = $pb->getAll();
                     foreach ($kqpb as $item) {
                         echo '<option value="' . $item['maPhong'] . '">' . $item['tenPhong'] . '</option>';
                     }
@@ -78,6 +78,13 @@
                     }
                     ?>
                 </select>
+            </div>
+        </div>
+
+        <div class="mb-3 mt-3 row justify-content-center">
+            <label for="hinh" class="col-2 col-form-label offset-2">Avatar</label>
+            <div class="col">
+                <input type="file" class="form-control shadow-sm w-50" id="hinh" name="hinh">
             </div>
         </div>
 

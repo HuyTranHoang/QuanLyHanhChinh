@@ -25,7 +25,7 @@
                 <select class="form-select shadow-sm w-25" name="maPhong" id="maPhong">
                     <?php
                     $pb = new PhongBan();
-                    $kqpb = $pb->getAll_PB();
+                    $kqpb = $pb->getAll();
                     foreach ($kqpb as $item) {
                         echo '<option value="' . $item['maPhong'] . '">' . $item['tenPhong'] . '</option>';
                     }
