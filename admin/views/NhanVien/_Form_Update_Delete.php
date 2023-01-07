@@ -8,7 +8,7 @@
 
     <hr class="mt-0">
 
-    <form method="POST" action="index.php?act=nhanvien&q=update" class="">
+    <form method="POST" action="index.php?act=nhanvien&q=update" enctype="multipart/form-data">
 
         <div class="mb-3 mt-3 row justify-content-center">
             <label for="tenNV" class="col-2 col-form-label offset-2">Tên nhân viên</label>
@@ -83,7 +83,7 @@
                 <select class="form-select shadow-sm w-25" name="maCV" id="maCV">
                     <?php
                     $cv = new chucVu();
-                    $kqcv = $cv->getAll_CV();
+                    $kqcv = $cv->getAll();
                     foreach ($kqcv as $item) {
                         echo '<option ';
                         echo ($kqOne['maCV'] == $item['maCV']) ? 'selected ' : false;

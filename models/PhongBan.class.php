@@ -2,11 +2,12 @@
 
 class PhongBan extends DB
 {
+
     public function __construct()
     {
     }
 
-    public static function insertPB($tenPhong, $vietTat, $ghiChu)
+    public function insertPB($tenPhong, $vietTat, $ghiChu)
     {
         $conn = self::connectDB();
         $query = "INSERT INTO phongban (maPhong, tenPhong, vietTat,ghiChu) VALUES (NULL,:tenPhong,:vietTat,:ghiChu)";
@@ -18,7 +19,7 @@ class PhongBan extends DB
         $conn = null;
     }
 
-    public static function updatePB($id, $tenPhong, $vietTat, $ghiChu)
+    public function updatePB($id, $tenPhong, $vietTat, $ghiChu)
     {
         $conn = self::connectDB();
         $query = "UPDATE phongban SET tenPhong=:tenPhong, vietTat=:vietTat, ghiChu=:ghiChu WHERE maPhong=:id";
@@ -31,7 +32,7 @@ class PhongBan extends DB
         $conn = null;
     }
 
-    public static function getOne($id)
+    public function getOne($id)
     {
         $conn = self::connectDB();
         $query = "SELECT * FROM phongban where maPhong =" . $id;
@@ -42,7 +43,7 @@ class PhongBan extends DB
         return $stmt->fetch();
     }
 
-    public static function deletePB($id)
+    public function deletePB($id)
     {
         $conn = self::connectDB();
         $query = "DELETE FROM phongban WHERE maPhong=" . $id;
@@ -51,7 +52,7 @@ class PhongBan extends DB
 
     }
 
-    public static function getAll()
+    public function getAll()
     {
         $conn = self::connectDB();
         $query = "SELECT * FROM phongban";

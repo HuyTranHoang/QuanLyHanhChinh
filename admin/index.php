@@ -35,21 +35,24 @@ include '../includes/autoloader.inc.php';
                 if (isset($_GET['act']) && isset($_GET['q'])) {
                     switch ($_GET['act']) {
                         case 'phongban':
-                            //$q nhận 4 giá trị index, create, update, delete
+                            $pb = new PhongBanController();
                             $q = $_GET['q'];
-                            PhongBanController::$q();
+                            ($q == 'index')? $pb -> index() : $pb -> $q() -> index();
                             break;
                         case 'chucvu':
+                            $cv = new ChucVuController();
                             $q = $_GET['q'];
-                            ChucVuController::$q();
+                            ($q == 'index')? $cv -> index() : $cv -> $q() -> index();
                             break;
                         case 'nhanvien':
+                            $nv = new NhanVienController();
                             $q = $_GET['q'];
-                            NhanVienController::$q();
+                            ($q == 'index')? $nv -> index() : $nv -> $q() -> index();
                             break;
                         case 'ngayphep':
+                            $np = new NgayPhepController();
                             $q = $_GET['q'];
-                            NgayPhepController::$q();
+                            ($q == 'index')? $np -> index() : $np -> $q() -> index();
                             break;
                         case 'phieunghiphep':
 //                            include 'views/phieunghiphep.php';

@@ -33,18 +33,18 @@
                 <?php echo (isset($_GET['confirm'])) ? false : '<button type="submit" class="btn text-light d-inline-block btn-sakura">Cập nhật</button>'; ?>
             </div>
             <div class="col-6">
-                <?php
-                if (isset($_GET['confirm'])) {
-                    echo '<h6>Bạn có chắc chắn muốn xóa phòng trên?</h6>';
-                    echo '<div class="row">';
-                    echo '<div class="col">';
-                    echo '<a href="index.php?act=phongban&q=delete&id=' . $kqOne['maPhong'] . '" class="btn btn-sakura text-white">Xác nhận</a>';
-                    echo '</div>';
-                    echo '<div class="col">';
-                    echo '<a href="index.php?act=phongban&q=index" class="btn btn-sakura text-white">Quay lại</a>';
-                    echo '</div>';
-                }
-                ?>
+            <?php
+            if (isset($_GET['confirm'])) {
+                echo '<h6>Bạn có chắc chắn muốn xóa phòng trên?</h6>';
+                echo '<div class="row">';
+                echo '<div class="col">';
+                echo '<a class="btn btn-sakura text-white" href="index.php?act=phongban&q=delete&id=' . $kqOne['maPhong'] . '">Xác nhận</a>';
+                echo '</div>';
+                echo '<div class="col">';
+                echo '<a class="btn btn-sakura text-white" href="index.php?act=phongban&q=index">Quay lại</a>';
+                echo '</div></div>';
+            }
+            ?>
             </div>
         </div>
     </form>

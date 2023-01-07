@@ -40,7 +40,7 @@
                 <select class="form-select shadow-sm w-50" name="maNV" id="maNV">
                     <?php
                     $nv = new NhanVien();
-                    $kqnv = $nv->getAll_NV_from_PB(1);
+                    $kqnv = $nv->getAll_FromID_PB(1);
                     foreach ($kqnv as $item) {
                         echo '<option value="' . $item['maNV'] . '">' . $item['tenNV'] . '</option>';
                     }

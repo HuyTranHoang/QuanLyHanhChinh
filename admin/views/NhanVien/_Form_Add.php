@@ -72,7 +72,7 @@
                 <select class="form-select shadow-sm w-25" name="maCV" id="maCV">
                     <?php
                     $cv = new chucVu();
-                    $kqcv = $cv->getAll_CV();
+                    $kqcv = $cv->getAll();
                     foreach ($kqcv as $item) {
                         echo '<option value="' . $item['maCV'] . '">' . $item['chucVu'] . '</option>';
                     }

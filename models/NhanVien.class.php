@@ -6,7 +6,7 @@ class NhanVien extends DB
     {
     }
 
-    public static function insertNV($tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV,$hinh)
+    public function insertNV($tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV,$hinh)
     {
         $conn = self::connectDB();
         $query = "INSERT INTO `nhanvien` (`maNV`, `tenNV`, `userName`, `password`, `maPhong`, `gioiTinh`, `ngaySinh`, `maCV`,`hinh` ) 
@@ -17,29 +17,29 @@ class NhanVien extends DB
 
     }
 
-    public static function updateNV($id, $tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV)
+    public function updateNV($id, $tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV, $hinh)
     {
         $conn = self::connectDB();
         $query = "UPDATE `nhanvien` SET `tenNV` = ?, `userName` = ?, `password` = ?, `maPhong` = ?, 
-                `gioiTinh` = ?, `ngaySinh` = ?, `maCV` = ? WHERE `nhanvien`.`maNV` = ?";
+                `gioiTinh` = ?, `ngaySinh` = ?, `maCV` = ?, `hinh` = ? WHERE `nhanvien`.`maNV` = ?";
         $stmt = $conn->prepare($query);
-        $stmt->execute([$tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV, $id]);
+        $stmt->execute([$tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV,$hinh, $id]);
         $conn = null;
 
     }
 
-    public static function getOne_NV($id)
+    public function getOne($id)
     {
         $conn = self::connectDB();
-        $query = "SELECT * FROM nhanvien where maNV =" . $id;
+        $query = "SELECT n.* ,p.tenPhong,c.chucVu FROM nhanvien n join chucvu c on c.maCV = n.maCV join phongban p on p.maPhong = n.maPhong where maNV = ?";
         $stmt = $conn->prepare($query);
-        $stmt->execute();
+        $stmt->execute([$id]);
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $conn = null;
         return $stmt->fetch();
     }
 
-    public static function delNV($id)
+    public function deleteNV($id)
     {
         $conn = self::connectDB();
         $query = "DELETE FROM nhanvien WHERE maNV=" . $id;
@@ -47,18 +47,8 @@ class NhanVien extends DB
         $conn = null;
     }
 
-    public static function getAll_NV()
-    {
-        $conn = self::connectDB();
-        $query = "SELECT * FROM nhanvien";
-        $stmt = $conn->prepare($query);
-        $stmt->execute();
-        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $conn = null;
-        return $stmt->fetchAll();
-    }
 
-    public static function getAll_NV_from_PB($id)
+    public function getAll_FromID_PB($id)
     {
         $conn = self::connectDB();
         $query = "SELECT * FROM nhanvien join phongban p on p.maPhong = nhanvien.maPhong where nhanvien.maPhong = ?";
@@ -69,7 +59,7 @@ class NhanVien extends DB
         return $stmt->fetchAll();
     }
 
-    public static function getAll_NV_PB_CV()
+    public function getAll()
     {
         $conn = self::connectDB();
         $query = "SELECT n.maNV, n.tenNV,p.tenPhong,c.chucVu FROM nhanvien n join chucvu c on c.maCV = n.maCV join phongban p on p.maPhong = n.maPhong";

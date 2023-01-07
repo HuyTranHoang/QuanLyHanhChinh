@@ -71,3 +71,8 @@ $spacers: map-merge($custom-spacers,$spacers);
     }
   }
 }
+
+.small, small {
+  font-size: .8em;
+}
+

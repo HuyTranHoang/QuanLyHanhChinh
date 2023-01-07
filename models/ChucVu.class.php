@@ -2,12 +2,10 @@
 
 class ChucVu extends DB
 {
-
     public function __construct()
     {
     }
-
-    public static function insertCV($chucVu)
+    public function insertCV($chucVu)
     {
         $conn = self::connectDB();
         $query = "INSERT INTO chucvu (maCV, chucVu) VALUES (NULL,:chucVu)";
@@ -17,7 +15,7 @@ class ChucVu extends DB
         $conn = null;
     }
 
-    public static function updateCV($id, $chucVu)
+    public function updateCV($id, $chucVu)
     {
         $conn = self::connectDB();
         $query = "UPDATE chucvu SET chucVu=:chucVu WHERE maCV=:id";
@@ -28,7 +26,7 @@ class ChucVu extends DB
         $conn = null;
     }
 
-    public static function getOne_CV($id)
+    public function getOne($id)
     {
         $conn = self::connectDB();
         $query = "SELECT * FROM chucvu where maCV =" . $id;
@@ -39,7 +37,7 @@ class ChucVu extends DB
         return $stmt->fetch();
     }
 
-    public static function delCV($id)
+    public function deleteCV($id)
     {
         $conn = self::connectDB();
         $query = "DELETE FROM chucvu WHERE maCV=" . $id;
@@ -47,7 +45,7 @@ class ChucVu extends DB
         $conn = null;
     }
 
-    public static function getAll_CV()
+    public function getAll()
     {
         $conn = self::connectDB();
         $query = "SELECT * FROM chucvu";

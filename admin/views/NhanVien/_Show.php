@@ -2,7 +2,8 @@
     <div class="row">
         <div class="col"><h5>Danh sách nhân viên</h5></div>
         <div class="col">
-            <a href="index.php?act=nhanvien&q=create"><h5 class="float-end"><i class="fa-duotone fa-user"></i> Thêm mới</h5></a>
+            <a href="index.php?act=nhanvien&q=create"><h5 class="float-end"><i class="fa-duotone fa-user"></i> Thêm mới
+                </h5></a>
         </div>
     </div>
 
@@ -20,7 +21,8 @@
             foreach ($kq as $index => $item) {
                 echo '<tr>';
                 echo '<td>' . $index + 1 . '</td>';
-                echo '<td><a href="index.php?act=nhanvien&q=update&id=' . $item['maNV'] . '" class="text-decoration-none" >' . $item['tenNV'] . '</a></td>';
+                echo '<td><a href="index.php?act=nhanvien&q=update&id=' . $item['maNV'] . '" class="text-decoration-none" >' . $item['tenNV'] .
+                    '</a><small class="small-text float-end"><a href="index.php?act=nhanvien&q=detail&id=' . $item['maNV'] . '" class="text-decoration-none" href=""><i class="fa-regular fa-circle-info"></i></a></small></td>';
                 echo '<td>' . $item['tenPhong'] . '</td>';
                 echo '<td>' . $item['chucVu'] . '</td>';
                 echo '<td><a href="index.php?act=nhanvien&q=delete&confirm&id=' . $item['maNV'] . '"><i class="fa-duotone fa-x"></a></i></td>';

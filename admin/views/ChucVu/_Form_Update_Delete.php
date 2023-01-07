@@ -19,14 +19,14 @@
             <div class="col-6">
                 <?php
                 if (isset($_GET['confirm'])) {
-                    echo '<h6>Bạn có chắc chắn muốn xóa chức vụ trên?</h6>';
+                    echo '<h6>Bạn có chắc chắn muốn xóa phòng trên?</h6>';
                     echo '<div class="row">';
                     echo '<div class="col">';
-                    echo '<a href="index.php?act=chucvu&q=delete&id=' . $kqOne['maCV'] . '" class="btn btn-sakura text-white">Xác nhận</a>';
+                    echo '<a class="btn btn-sakura text-white" href="index.php?act=chucvu&q=delete&id=' . $kqOne['maCV'] . '">Xác nhận</a>';
                     echo '</div>';
                     echo '<div class="col">';
-                    echo '<a href="index.php?act=chucvu&q=index" class="btn btn-sakura text-white">Quay lại</a>';
-                    echo '</div>';
+                    echo '<a class="btn btn-sakura text-white" href="index.php?act=chucvu&q=index">Quay lại</a>';
+                    echo '</div></div>';
                 }
                 ?>
             </div>

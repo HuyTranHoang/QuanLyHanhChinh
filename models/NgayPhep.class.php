@@ -6,7 +6,7 @@ class NgayPhep extends DB
     {
     }
 
-    public static function insertNP($maNV, $soNgayHienTai, $tongSoNgay, $nam, $ghiChu)
+    public function insertNP($maNV, $soNgayHienTai, $tongSoNgay, $nam, $ghiChu)
     {
         $conn = self::connectDB();
         $query = "INSERT INTO `tongngaynghi` (`maPhep`, `maNV`, `soNgayHienTai`, `tongSoNgay`, `nam`, `ghiChu`) 
@@ -16,7 +16,7 @@ class NgayPhep extends DB
         $conn = null;
     }
 
-    public static function updateNP($maPhep,$maNV,$soNgayHienTai,$tongSoNgay,$nam,$ghiChu)
+    public function updateNP($maPhep,$maNV,$soNgayHienTai,$tongSoNgay,$nam,$ghiChu)
     {
         $conn = self::connectDB();
         $query = "UPDATE `tongngaynghi` SET `maNV` = ?, `soNgayHienTai` = ?, `tongSoNgay` = ?, `nam` = ?, 
@@ -27,7 +27,7 @@ class NgayPhep extends DB
     }
 
 
-    public static function delNP($id)
+    public function deleteNP($id)
     {
         $conn = self::connectDB();
         $query = "DELETE FROM tongngaynghi WHERE maPhep=" . $id;
@@ -35,7 +35,7 @@ class NgayPhep extends DB
         $conn = null;
     }
 
-    public static function getOne_NP_NV($id)
+    public function getOne($id)
     {
         $conn = self::connectDB();
         $query = "SELECT t.maPhep, n.maNV ,n.tenNV, n.maPhong, t.soNgayHienTai, t.tongSoNgay, t.nam, t.ghiChu FROM tongngaynghi t JOIN nhanvien n on n.maNV = T.maNV";
@@ -47,7 +47,7 @@ class NgayPhep extends DB
         return $stmt->fetch();
     }
 
-    public static function getAll_NP_NV()
+    public function getAll()
     {
         $conn = self::connectDB();
         $query = "SELECT t.maPhep, n.maNV ,n.tenNV, t.soNgayHienTai, t.tongSoNgay, t.nam FROM tongngaynghi t JOIN nhanvien n on n.maNV = T.maNV";
