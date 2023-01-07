@@ -13,7 +13,7 @@ class ChucVuController extends ChucVu
         include 'views/ChucVu/index.php';
     }
 
-    public function create()
+    public function create(): static
     {
         if ((isset($_POST['addcv'])) && ($_POST['addcv'])) {
             $chucVu = $_POST['chucVu'];
@@ -22,7 +22,7 @@ class ChucVuController extends ChucVu
         return $this;
     }
 
-    public function update()
+    public function update(): static
     {
         if (isset($_POST['maCV'])) {
             $maCV = $_POST['maCV'];
@@ -32,13 +32,17 @@ class ChucVuController extends ChucVu
         return $this;
     }
 
-    public function delete()
+    public function delete(): static
     {
         if (isset($_GET['id']) && !isset($_GET['confirm'])) {
             $id = $_GET['id'];
             self::deleteCV($id);
         }
         return $this;
+    }
+
+    public function __call($methodName, $argument) {
+        header('location: index.php?act=chucvu&q=index');
     }
 
 }

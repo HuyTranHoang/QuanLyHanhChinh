@@ -65,9 +65,8 @@
             <div class="col">
                 <select class="form-select shadow-sm w-25" name="maPhong" id="maPhong">
                     <?php
-                    $pb = new PhongBan();
-                    $kqpb = $pb->getAll();
-                    foreach ($kqpb as $item) {
+                    $pb = new PhongBanController();
+                    foreach ($pb->getAll() as $item) {
                         echo '<option ';
                         echo ($kqOne['maPhong'] == $item['maPhong']) ? 'selected ' : false;
                         echo 'value="' . $item['maPhong'] . '">' . $item['tenPhong'] . '</option>';
@@ -82,9 +81,8 @@
             <div class="col">
                 <select class="form-select shadow-sm w-25" name="maCV" id="maCV">
                     <?php
-                    $cv = new chucVu();
-                    $kqcv = $cv->getAll();
-                    foreach ($kqcv as $item) {
+                    $cv = new ChucVuController();
+                    foreach ($cv->getAll() as $item) {
                         echo '<option ';
                         echo ($kqOne['maCV'] == $item['maCV']) ? 'selected ' : false;
                         echo 'value="' . $item['maCV'] . '">' . $item['chucVu'] . '</option>';

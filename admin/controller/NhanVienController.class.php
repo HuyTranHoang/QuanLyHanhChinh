@@ -10,7 +10,8 @@ class NhanVienController extends NhanVien
         }
         include 'views/NhanVien/index.php';
     }
-    public function create() {
+    public function create(): static
+    {
         if ((isset($_POST['addnv'])) && ($_POST['addnv'])) {
             $tenNV = $_POST['tenNV'];
             $userName = $_POST['userName'];
@@ -20,7 +21,7 @@ class NhanVienController extends NhanVien
             $ngaySinh = $_POST['ngaySinh'];
             $maCV = $_POST['maCV'];
             $tenHinh = $_FILES['hinh']['name'];
-            $sizeHinh = $_FILES['hinh']['size'];
+//            $sizeHinh = $_FILES['hinh']['size'];
             $tmpTenHinh = $_FILES['hinh']['tmp_name'];
             move_uploaded_file($tmpTenHinh,'../images/HinhNV/'.$tenHinh);
             self::insertNV($tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV,$tenHinh);
@@ -28,7 +29,8 @@ class NhanVienController extends NhanVien
         }
         return $this;
     }
-    public function update() {
+    public function update(): static
+    {
         if (isset($_POST['maNV'])) {
             $maCV = $_POST['maCV'];
             $tenNV = $_POST['tenNV'];
@@ -39,7 +41,7 @@ class NhanVienController extends NhanVien
             $ngaySinh = $_POST['ngaySinh'];
             $maNV = $_POST['maNV'];
             $tenHinh = $_FILES['hinh']['name'];
-            $sizeHinh = $_FILES['hinh']['size'];
+//            $sizeHinh = $_FILES['hinh']['size'];
             $tmpTenHinh = $_FILES['hinh']['tmp_name'];
             move_uploaded_file($tmpTenHinh,'../images/HinhNV/'.$tenHinh);
             self::updateNV($maNV, $tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh,
@@ -47,7 +49,8 @@ class NhanVienController extends NhanVien
         }
         return $this;
     }
-    public  function delete(){
+    public  function delete(): static
+    {
         if (isset($_GET['id']) && !isset($_GET['confirm'])) {
             $id = $_GET['id'];
             self::deleteNV($id);
@@ -55,7 +58,8 @@ class NhanVienController extends NhanVien
         return $this;
     }
 
-    public  function detail(){
+    public  function detail(): static
+    {
         return $this;
     }
 

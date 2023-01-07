@@ -2,7 +2,7 @@
 session_start();
 include '../includes/autoloader.inc.php';
 ?>
-<!doctype html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,10 +12,6 @@ include '../includes/autoloader.inc.php';
     <link rel="icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/fa/all.css">
     <link rel="stylesheet" href="../css/style.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,300&display=swap"
-          rel="stylesheet">
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script defer src="../js/main.js"></script>
     <title>Quản lý hành chính</title>
@@ -37,22 +33,22 @@ include '../includes/autoloader.inc.php';
                         case 'phongban':
                             $pb = new PhongBanController();
                             $q = $_GET['q'];
-                            ($q == 'index')? $pb -> index() : $pb -> $q() -> index();
+                            ($q == 'index') ? $pb->index() : $pb->$q()->index();
                             break;
                         case 'chucvu':
                             $cv = new ChucVuController();
                             $q = $_GET['q'];
-                            ($q == 'index')? $cv -> index() : $cv -> $q() -> index();
+                            ($q == 'index') ? $cv->index() : $cv->$q()->index();
                             break;
                         case 'nhanvien':
                             $nv = new NhanVienController();
                             $q = $_GET['q'];
-                            ($q == 'index')? $nv -> index() : $nv -> $q() -> index();
+                            ($q == 'index') ? $nv->index() : $nv->$q()->index();
                             break;
                         case 'ngayphep':
                             $np = new NgayPhepController();
                             $q = $_GET['q'];
-                            ($q == 'index')? $np -> index() : $np -> $q() -> index();
+                            ($q == 'index') ? $np->index() : $np->$q()->index();
                             break;
                         case 'phieunghiphep':
 //                            include 'views/phieunghiphep.php';

@@ -41,7 +41,7 @@
                 <i class="fa-duotone fa-note"></i> Tạo phếu </a>
         </li>
         <li>
-            <a href="?act=thoat" class="nav-link text-dark ">
+            <a href="?act=thoat&q=" class="nav-link text-dark ">
                 <i class="fa-solid fa-arrow-right-from-bracket me-2"></i> Thoát </a>
         </li>
     </ul>

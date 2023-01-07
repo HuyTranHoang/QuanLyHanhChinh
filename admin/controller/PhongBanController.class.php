@@ -11,7 +11,8 @@ class PhongBanController extends PhongBan
         include 'views/PhongBan/index.php';
     }
 
-    public function create() {
+    public function create(): static
+    {
         if ((isset($_POST['addpb'])) && ($_POST['addpb'])) {
             $tenPhong = $_POST['tenPhong'];
             $vietTat = $_POST['vietTat'];
@@ -21,7 +22,8 @@ class PhongBanController extends PhongBan
         return $this;
     }
 
-    public function update() {
+    public function update(): static
+    {
         if (isset($_POST['maPhong'])) {
             $maPhong = $_POST['maPhong'];
             $tenPhong = $_POST['tenPhong'];
@@ -32,12 +34,17 @@ class PhongBanController extends PhongBan
         return $this;
     }
 
-    public  function delete(){
+    public  function delete(): static
+    {
         if (isset($_GET['id']) && !isset($_GET['confirm'])) {
             $id = $_GET['id'];
             self::deletePB($id);
         }
         return $this;
+    }
+
+    public function __call($methodName, $argument) {
+        header('location: index.php?act=phongban&q=index');
     }
 
 }

@@ -13,7 +13,7 @@ class NgayPhepController extends NgayPhep
         include 'views/NgayPhep/index.php';
     }
 
-    public function create()
+    public function create(): static
     {
         if ((isset($_POST['addnp'])) && ($_POST['addnp'])) {
             $maNV = $_POST['maNV'];
@@ -28,7 +28,7 @@ class NgayPhepController extends NgayPhep
 
     }
 
-    public function update()
+    public function update(): static
     {
         if (isset($_POST['maPhep'])) {
             $maNV = $_POST['maNV'];
@@ -41,7 +41,7 @@ class NgayPhepController extends NgayPhep
         }
         return $this;
     }
-    public function delete()
+    public function delete(): static
     {
         if (isset($_GET['id']) && !isset($_GET['confirm'])) {
             $id = $_GET['id'];
