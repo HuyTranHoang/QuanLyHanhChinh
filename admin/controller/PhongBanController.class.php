@@ -36,8 +36,8 @@ class PhongBanController extends PhongBan
 
     public  function delete(): static
     {
-        if (isset($_GET['id']) && !isset($_GET['confirm'])) {
-            $id = $_GET['id'];
+        if (isset($_POST['id']) && !isset($_POST['confirm'])) {
+            $id = $_POST['id'];
             self::deletePB($id);
         }
         return $this;

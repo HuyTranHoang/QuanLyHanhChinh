@@ -21,9 +21,7 @@ $theme-colors: map-merge($custom-theme-colors,$theme-colors);
 $table-variants: map-merge($custom-theme-colors,$table-variants);
 $spacers: map-merge($custom-spacers,$spacers);
 
-
 @import "../node_modules/bootstrap/scss/bootstrap";
-
 
 * {
   margin: 0;

@@ -62,4 +62,14 @@ class PhongBan extends DB
         $conn = null;
         return $stmt->fetchAll();
     }
+
+    public function getMaxID() {
+        $conn = self::connectDB();
+        $query = "SELECT AUTO_INCREMENT - 1 as CurrentId FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'quanlyhanhchinh' AND TABLE_NAME = 'phongban'";
+        $stmt = $conn -> prepare($query);
+        $stmt->execute();
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $conn = null;
+        return $stmt->fetch();
+    }
 }
