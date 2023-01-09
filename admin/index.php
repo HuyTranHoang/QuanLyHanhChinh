@@ -12,9 +12,9 @@ include '../includes/autoloader.inc.php';
     <link rel="icon" href="../images/logo.png">
     <link rel="stylesheet" href="../css/fa/all.css">
     <link rel="stylesheet" href="../css/style.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="../css/toastr.css">
     <script defer src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.js"></script>
     <script defer src="../js/main.js"></script>
 
 

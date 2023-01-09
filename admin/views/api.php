@@ -49,7 +49,7 @@ if ((isset($_POST['addpb'])) && ($_POST['addpb'])) {
     echo '<td><a href="index.php?act=phongban&q=update&id=' . $maPhong['CurrentId'] . '" class="text-decoration-none" >' . $tenPhong . '</a></td>';
     echo '<td>' . $vietTat . '</td>';
 //                echo '<td><a href="index.php?act=phongban&q=delete&confirm&id=' . $item['maPhong'] . '"><i class="fa-duotone fa-x"></a></i></td>';
-    echo '<td><span class="btnXoa text-danger" data-act="phongban" data-id="' . $maPhong['CurrentId'] . '"><i style="cursor:pointer;" class="fa-duotone fa-x"></span></td>';
+    echo '<td><span class="btnXoa text-danger" data-act="phongban" data-id="' . $maPhong['CurrentId'] . '" data-tenphong="' . $tenPhong . '"><i style="cursor:pointer;" class="fa-duotone fa-x"></span></td>';
     echo '</tr>';
 }
 
