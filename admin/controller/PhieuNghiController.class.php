@@ -34,7 +34,7 @@ class PhieuNghiController extends PhieuNghi
         return true;
     }
 
-    public function create(): static
+    public function create()
     {
         if ((isset($_POST['addtp'])) && ($_POST['addtp'])) {
             if (self::checkNP()) {
@@ -54,15 +54,15 @@ class PhieuNghiController extends PhieuNghi
             }
         }
 
-        return $this;
+        $this->index();
     }
 
-    public function showConfirm(): static
+    public function showConfirm()
     {
-        return $this;
+        $this->index();
     }
 
-    public function Confirm(): static
+    public function Confirm()
     {
         $np = new NgayPhepController();
         $kq = $np->findNV($_POST['maNV']);
@@ -75,12 +75,12 @@ class PhieuNghiController extends PhieuNghi
         } else {
             self::updatePN(-1,$nguoi_duyet,$ngay_duyet,$_POST['maPhieu']);
         }
-        return $this;
+        $this->index();
     }
 
-    public function delete(): static
+    public function delete()
     {
-        return $this;
+        $this->index();
     }
 
     public function __call($methodName, $argument)

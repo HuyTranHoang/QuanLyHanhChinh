@@ -13,7 +13,7 @@ class NgayPhepController extends NgayPhep
         include 'views/NgayPhep/index.php';
     }
 
-    public function create(): static
+    public function create()
     {
         if ((isset($_POST['addnp'])) && ($_POST['addnp'])) {
             $maNV = $_POST['maNV'];
@@ -24,11 +24,11 @@ class NgayPhepController extends NgayPhep
             self::insertNP($maNV, $soNgayHienTai, $tongSoNgay, $nam, $ghiChu);
             header('location: index.php?act=ngayphep&q=index');
         }
-        return $this;
+        $this->index();
 
     }
 
-    public function update(): static
+    public function update()
     {
         if (isset($_POST['maPhep'])) {
             $maNV = $_POST['maNV'];
@@ -39,15 +39,15 @@ class NgayPhepController extends NgayPhep
             $maPhep = $_POST['maPhep'];
             self::updateNP($maPhep, $maNV, $soNgayHienTai, $tongSoNgay, $nam, $ghiChu);
         }
-        return $this;
+        $this->index();
     }
-    public function delete(): static
+    public function delete()
     {
         if (isset($_GET['id']) && !isset($_GET['confirm'])) {
             $id = $_GET['id'];
             self::deleteNP($id);
         }
-        return $this;
+        $this->index();
     }
 
     public function __call($methodName, $argument) {

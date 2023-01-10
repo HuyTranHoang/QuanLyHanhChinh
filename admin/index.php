@@ -33,36 +33,31 @@ include '../includes/autoloader.inc.php';
             <?php
             if (isset($_SESSION['role'])) {
                 if (isset($_GET['act']) && isset($_GET['q'])) {
+                    $q = $_GET['q'];
                     switch ($_GET['act']) {
                         case 'phongban':
                             $pb = new PhongBanController();
-                            $q = $_GET['q'];
-                            ($q == 'index') ? $pb->index() : $pb->$q()->index();
+                            ($q == 'index') ? $pb->$q() : $pb->$q()->index();
                             break;
                         case 'chucvu':
                             $cv = new ChucVuController();
-                            $q = $_GET['q'];
-                            ($q == 'index') ? $cv->index() : $cv->$q()->index();
+                            $cv->$q();
                             break;
                         case 'nhanvien':
                             $nv = new NhanVienController();
-                            $q = $_GET['q'];
-                            ($q == 'index') ? $nv->index() : $nv->$q()->index();
+                            $nv->$q();
                             break;
                         case 'ngayphep':
                             $np = new NgayPhepController();
-                            $q = $_GET['q'];
-                            ($q == 'index') ? $np->index() : $np->$q()->index();
+                            $np->$q();
                             break;
                         case 'phieunghiphep':
                             $pnp = new PhieuNghiController();
-                            $q = $_GET['q'];
-                            ($q == 'index') ? $pnp->index() : $pnp->$q()->index();
+                            $pnp->$q();
                             break;
                         case 'taophieu':
                             $tp = new PhieuNghiController();
-                            $q = $_GET['q'];
-                            ($q == 'index') ? $tp->index() : $tp->$q()->index();
+                            $tp->$q();
                             break;
                         case 'thoat':
                             unset($_SESSION['role']);

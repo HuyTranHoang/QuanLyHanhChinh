@@ -10,7 +10,7 @@ class NhanVienController extends NhanVien
         }
         include 'views/NhanVien/index.php';
     }
-    public function create(): static
+    public function create()
     {
         if ((isset($_POST['addnv'])) && ($_POST['addnv'])) {
             $tenNV = $_POST['tenNV'];
@@ -27,9 +27,9 @@ class NhanVienController extends NhanVien
             self::insertNV($tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh, $maCV,$tenHinh);
             header('location: index.php?act=nhanvien&q=index');
         }
-        return $this;
+        $this->index();
     }
-    public function update(): static
+    public function update()
     {
         if (isset($_POST['maNV'])) {
             $maCV = $_POST['maCV'];
@@ -47,20 +47,20 @@ class NhanVienController extends NhanVien
             self::updateNV($maNV, $tenNV, $userName, $password, $maPhong, $gioiTinh, $ngaySinh,
                 $maCV,$tenHinh);
         }
-        return $this;
+        $this->index();
     }
-    public  function delete(): static
+    public  function delete()
     {
         if (isset($_GET['id']) && !isset($_GET['confirm'])) {
             $id = $_GET['id'];
             self::deleteNV($id);
         }
-        return $this;
+        $this->index();
     }
 
-    public  function detail(): static
+    public  function detail()
     {
-        return $this;
+        $this->index();
     }
 
     //Gọi khi bên ngoài gọi hàm không tồn tại hoặc private
