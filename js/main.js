@@ -25,11 +25,11 @@ $(document).ready(function () {
         });
     });
 
-
     $('#addpb').click(function (e) {
         let tenPhong = $('#tenPhong').val();
         let vietTat = $('#vietTat').val();
         let ghiChu = $('#ghiChu').val();
+        let toastLiveExample = $('#liveToast');
         $.post('views/api.php', {
             tenPhong: tenPhong,
             vietTat: vietTat,
@@ -70,6 +70,8 @@ $(document).ready(function () {
             })
         }
     });
+
+
 
 
     // $( '.btnXoa' ).click(function() {

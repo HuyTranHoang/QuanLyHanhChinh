@@ -1,3 +1,3 @@
-<div class="col offset-2">
-    <h1 class="">FOOTER PLACEHOLDER</h1>
+<div class="col bg-sakura">
+    <div class="offset-2 float-end text-light"> &copy; Huy.TH 2023</div>
 </div> <?php

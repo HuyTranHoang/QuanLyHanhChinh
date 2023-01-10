@@ -47,6 +47,18 @@ class NgayPhep extends DB
         return $stmt->fetch();
     }
 
+    public function findNV($id)
+    {
+        $conn = self::connectDB();
+        $query = "SELECT t.maPhep, n.maNV ,n.tenNV, n.maPhong, t.soNgayHienTai, t.tongSoNgay, t.nam, t.ghiChu FROM tongngaynghi t JOIN nhanvien n on n.maNV = T.maNV";
+        $query .= ' where n.maNV ='.$id;
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $conn = null;
+        return $stmt->fetch();
+    }
+
     public function getAll()
     {
         $conn = self::connectDB();

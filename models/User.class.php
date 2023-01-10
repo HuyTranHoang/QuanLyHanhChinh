@@ -16,7 +16,7 @@ class User extends DB
         $stmt->execute();
         $kq = $stmt->fetch(PDO::FETCH_ASSOC);
         $conn = null;
-        return (empty($kq)) ? null : $kq['maCV'];
+        return (empty($kq)) ? null : ['maCV' => $kq['maCV'], 'maNV' => $kq['maNV']];
     }
 
 }

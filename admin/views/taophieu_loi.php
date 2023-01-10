@@ -1,7 +1,7 @@
 <div class="text-center mt-3">
     <h3>TẠO MỚI PHIẾU</h3>
     <hr>
-    <form method="POST" action="index.php?act=addtp&q=create" class="">
+    <form method="POST" action="index.php?act=addtp" class="">
         <div class="mb-3 mt-3 row justify-content-center">
             <label for="tenNV" class="col-2 col-form-label offset-2">Tên nhân viên</label>
             <div class="col">
@@ -89,5 +89,15 @@
             <input type="submit" class="btn d-inline-block text-light btn-sakura" name="addtp" value="Đăng ký">
         </div>
     </form>
+    <?php
+    $np = new NgayPhep();
+    $kq = $np->findNV($_SESSION['userID']);
+    $ngayNghiConLai = $kq['tongSoNgay'] - $kq['soNgayHienTai'];
+    if ($soNgayNghi > $ngayNghiConLai) {
+        echo '<h1>Không thể tạo phiếu vì số ngày nghỉ vượt quá giới hạn</h1>';
+    } else {
+        echo 'OK';
+    }
+    ?>
 </div>
 

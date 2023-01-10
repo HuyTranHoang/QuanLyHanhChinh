@@ -25,7 +25,7 @@ include '../includes/autoloader.inc.php';
     <div class="row">
         <?php include 'views/_Layout/_Header.php'; ?>
     </div>
-    <div class="row">
+    <div class="row" style="min-height: 87vh">
         <div class="col-2 fixed-top ps-0">
             <?php include_once 'views/_Layout/_Sidebar.php' ?>
         </div>
@@ -60,8 +60,13 @@ include '../includes/autoloader.inc.php';
                         case 'taophieu':
                             include 'views/taophieu.php';
                             break;
+                        case 'addtp':
+                            $soNgayNghi = date('d',strtotime($_POST['den_ngay']) - strtotime($_POST['tu_ngay']))-1;
+                            include 'views/taophieu_loi.php';
+                            break;
                         case 'thoat':
                             unset($_SESSION['role']);
+                            unset($_SESSION['userID']);
                             header('location:../login.php');
                             exit();
                         default:

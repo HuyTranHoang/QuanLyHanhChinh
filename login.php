@@ -6,9 +6,11 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
     $user = new user();
     $userName = $_POST['userName'];
     $password = $_POST['password'];
-    $role = $user->checkUser($userName, $password);
+    $role = $user->checkUser($userName, $password)['maCV'];
+    $userID = $user->checkUser($userName, $password)['maNV'];
     if (isset($role)) {
         $_SESSION['role'] = $role;
+        $_SESSION['userID'] = $userID;
         header('location: admin/index.php');
         exit();
     } else {
