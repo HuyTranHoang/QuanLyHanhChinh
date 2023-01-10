@@ -5,7 +5,11 @@ class PhieuNghiController extends PhieuNghi
     public function index()
     {
         $kq = self::getAll($_SESSION['userID']);
-        $kqQuanLy = self::getAllNV_FromPB($_SESSION['userID']);
+
+        $pb = new PhongBanController();
+        // Lấy phòng ban của user đang login hiện tại, chỉ được duyệt những người cùng phòng mình
+        $phongBan = $pb->findNV($_SESSION['userID']);
+        $kqQuanLy = self::getAllNV_FromPB($phongBan['maPhong']);
         if (isset($_POST['addtp'])) {
             $checkNP = self::checkNP();
         }

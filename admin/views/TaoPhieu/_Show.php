@@ -1,5 +1,5 @@
 <div class="mt-4">
-    <?php if ($_SESSION['role'] == 1 & isset($kqQuanLy) && count($kqQuanLy) > 0): ?>
+    <?php if ($_SESSION['role'] == 1 && isset($kqQuanLy) && count($kqQuanLy) > 0): ?>
         <h3>PHIẾU CHỜ DUYỆT</h3>
         <hr>
         <table class="table table-striped table-bordered" id="tablePN">

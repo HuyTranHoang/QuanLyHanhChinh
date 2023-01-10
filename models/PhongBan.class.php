@@ -43,6 +43,17 @@ class PhongBan extends DB
         return $stmt->fetch();
     }
 
+    public function findNV($id)
+    {
+        $conn = self::connectDB();
+        $query = "select phongban.maPhong from phongban join nhanvien n on phongban.maPhong = n.maPhong where n.maNV = $id";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $conn = null;
+        return $stmt->fetch();
+    }
+
     public function deletePB($id)
     {
         $conn = self::connectDB();
