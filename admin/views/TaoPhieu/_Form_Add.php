@@ -1,7 +1,7 @@
 <div class="text-center mt-3">
     <h3>TẠO MỚI PHIẾU</h3>
     <hr>
-    <form method="POST" action="index.php?act=addtp&q=create" class="">
+    <form method="POST" action="index.php?act=taophieu&q=create" class="">
         <div class="mb-3 mt-3 row justify-content-center">
             <label for="tenNV" class="col-2 col-form-label offset-2">Tên nhân viên</label>
             <div class="col">
@@ -56,7 +56,7 @@
                        placeholder="Ngày kết thúc...">
             </div>
             <div class="col">
-                <select class="form-select shadow-sm w-50" name="tu_buoi" id="tu_buoi">
+                <select class="form-select shadow-sm w-50" name="den_buoi" id="den_buoi">
                     <option value="0">Sáng</option>
                     <option value="1">Trưa</option>
                     <option value="2">Chiều</option>
@@ -89,5 +89,10 @@
             <input type="submit" class="btn d-inline-block text-light btn-sakura" name="addtp" value="Đăng ký">
         </div>
     </form>
+    <?php
+    if (isset($checkNP) && !$checkNP) {
+      echo '<h3>Số ngày nghỉ vượt quá số ngày hiện có -- Để tạm =))</h3>';
+    }
+    ?>
 </div>
 

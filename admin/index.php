@@ -27,9 +27,9 @@ include '../includes/autoloader.inc.php';
     </div>
     <div class="row" style="min-height: 87vh">
         <div class="col-2 fixed-top ps-0">
-            <?php include_once 'views/_Layout/_Sidebar.php' ?>
+            <?php ($_SESSION['role'] == 1) ? include_once 'views/_Layout/_Sidebar.php' : include_once 'views/_Layout/_Sidebar_Member.php' ?>
         </div>
-        <div class="col-8 offset-2">
+        <div class="col-9 offset-2">
             <?php
             if (isset($_SESSION['role'])) {
                 if (isset($_GET['act']) && isset($_GET['q'])) {
@@ -55,14 +55,14 @@ include '../includes/autoloader.inc.php';
                             ($q == 'index') ? $np->index() : $np->$q()->index();
                             break;
                         case 'phieunghiphep':
-//                            include 'views/phieunghiphep.php';
+                            $pnp = new PhieuNghiController();
+                            $q = $_GET['q'];
+                            ($q == 'index') ? $pnp->index() : $pnp->$q()->index();
                             break;
                         case 'taophieu':
-                            include 'views/taophieu.php';
-                            break;
-                        case 'addtp':
-                            $soNgayNghi = date('d',strtotime($_POST['den_ngay']) - strtotime($_POST['tu_ngay']))-1;
-                            include 'views/taophieu_loi.php';
+                            $tp = new PhieuNghiController();
+                            $q = $_GET['q'];
+                            ($q == 'index') ? $tp->index() : $tp->$q()->index();
                             break;
                         case 'thoat':
                             unset($_SESSION['role']);

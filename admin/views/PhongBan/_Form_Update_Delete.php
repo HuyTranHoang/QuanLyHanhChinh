@@ -26,6 +26,7 @@
             </div>
         </div>
 
+        <input type="hidden" name="maNV" value="<?= $kqOne['maNV'] ?>">
         <input type="hidden" name="maPhong" value="<?= $kqOne['maPhong'] ?>">
 
         <div class="mb-3 row">
