@@ -1,4 +1,3 @@
 <?php
 
-header("location: login.php");
-exit();
+echo "123";
