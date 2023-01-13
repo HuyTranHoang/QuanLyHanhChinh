@@ -40,16 +40,13 @@ include '../includes/autoloader.inc.php';
                             ($q == 'index') ? $pb->$q() : $pb->$q()->index();
                             break;
                         case 'chucvu':
-                            $cv = new ChucVuController();
-                            $cv->$q();
+                            (new ChucVuController()) -> $q();
                             break;
                         case 'nhanvien':
-                            $nv = new NhanVienController();
-                            $nv->$q();
+                            (new NhanVienController()) -> $q();
                             break;
                         case 'ngayphep':
-                            $np = new NgayPhepController();
-                            $np->$q();
+                            (new NgayPhepController()) -> $q();
                             break;
                         case 'phieunghiphep':
                             $pnp = new PhieuNghiController();
